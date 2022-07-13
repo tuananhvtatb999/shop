@@ -1,0 +1,82 @@
+"2022-06-28 23:43:48 [main] INFO  s.ecommerce.FptEcommerceApplication - Starting FptEcommerceApplication using Java 1.8.0_202 on DESKTOP-M1LKH35 with PID 103832 (D:\eclipse-workplace\FPTEcommerce\target\classes started by ADMIN in D:\eclipse-workplace\FPTEcommerce)
+""2022-06-28 23:43:48 [main] INFO  s.ecommerce.FptEcommerceApplication - No active profile set, falling back to 1 default profile: "default"
+""2022-06-28 23:43:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-06-28 23:43:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 8 JPA repository interfaces.
+""2022-06-28 23:43:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2022-06-28 23:43:50 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-06-28 23:43:50 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.62]
+""2022-06-28 23:43:50 [main] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+""2022-06-28 23:43:50 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-06-28 23:43:50 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1256 ms
+""2022-06-28 23:43:50 [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+""2022-06-28 23:43:50 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-06-28 23:43:50 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.8.Final
+""2022-06-28 23:43:50 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-06-28 23:43:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-06-28 23:43:51 [main] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-06-28 23:43:51 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:51 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:43:52 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-06-28 23:43:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-06-28 23:43:52 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-06-28 23:43:52 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation should only be used on methods with parameters: public java.lang.String springboot.ecommerce.controller.ShopController.test()
+""2022-06-28 23:43:52 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f655dbd, org.springframework.security.web.context.SecurityContextPersistenceFilter@42d0e41, org.springframework.security.web.header.HeaderWriterFilter@19d3f6ad, org.springframework.security.web.authentication.logout.LogoutFilter@43778371, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1c815814, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9cc0505, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3359c3f6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@546083d6, org.springframework.security.web.session.SessionManagementFilter@19e801b5, org.springframework.security.web.access.ExceptionTranslationFilter@556aed22, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d3634c8]
+""2022-06-28 23:43:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2022-06-28 23:43:53 [main] INFO  s.ecommerce.FptEcommerceApplication - Started FptEcommerceApplication in 4.642 seconds (JVM running for 5.422)
+""2022-06-28 23:43:58 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-06-28 23:43:58 [http-nio-8080-exec-1] INFO  s.e.controller.HandleErrorController - 404
+""2022-06-28 23:44:15 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+""2022-06-28 23:44:16 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-06-28 23:44:16 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-06-28 23:44:16 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2022-06-28 23:44:22 [main] INFO  s.ecommerce.FptEcommerceApplication - Starting FptEcommerceApplication using Java 1.8.0_202 on DESKTOP-M1LKH35 with PID 110596 (D:\eclipse-workplace\FPTEcommerce\target\classes started by ADMIN in D:\eclipse-workplace\FPTEcommerce)
+""2022-06-28 23:44:22 [main] INFO  s.ecommerce.FptEcommerceApplication - No active profile set, falling back to 1 default profile: "default"
+""2022-06-28 23:44:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-06-28 23:44:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 8 JPA repository interfaces.
+""2022-06-28 23:44:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2022-06-28 23:44:23 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2022-06-28 23:44:23 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.62]
+""2022-06-28 23:44:24 [main] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+""2022-06-28 23:44:24 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2022-06-28 23:44:24 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1406 ms
+""2022-06-28 23:44:24 [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+""2022-06-28 23:44:24 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-06-28 23:44:24 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.8.Final
+""2022-06-28 23:44:24 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-06-28 23:44:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2022-06-28 23:44:25 [main] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2022-06-28 23:44:25 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:25 [HikariPool-1 connection adder] WARN  c.m.s.jdbc.internals.TDS.Channel - TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+""2022-06-28 23:44:26 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-06-28 23:44:26 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-06-28 23:44:26 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-06-28 23:44:26 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation should only be used on methods with parameters: public java.lang.String springboot.ecommerce.controller.ShopController.test()
+""2022-06-28 23:44:26 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@570ed9c, org.springframework.security.web.context.SecurityContextPersistenceFilter@422ba9b7, org.springframework.security.web.header.HeaderWriterFilter@3359c3f6, org.springframework.security.web.authentication.logout.LogoutFilter@60bc308b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a751535, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@707f4647, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16949dfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@93f15f6, org.springframework.security.web.session.SessionManagementFilter@45b27ad3, org.springframework.security.web.access.ExceptionTranslationFilter@8ee03f5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73da303e]
+""2022-06-28 23:44:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2022-06-28 23:44:27 [main] INFO  s.ecommerce.FptEcommerceApplication - Started FptEcommerceApplication in 4.845 seconds (JVM running for 5.659)
+""2022-06-28 23:44:29 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2022-06-28 23:44:29 [http-nio-8080-exec-1] INFO  s.e.controller.HandleErrorController - 404
+""2022-06-28 23:44:41 [http-nio-8080-exec-1] INFO  s.e.controller.HandleErrorController - 404
+""2022-06-28 23:48:03 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+""2022-06-28 23:48:04 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-06-28 23:48:04 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2022-06-28 23:48:04 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+"

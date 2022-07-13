@@ -1,0 +1,13 @@
+@import url("../css/root.css");
+
+.content-wrapper{
+    align-items: center;
+    margin-top: 5%;
+}
+.btnArond{
+    float: right;
+   
+}
+.btnArond button{
+    margin-left: 20px;
+}
