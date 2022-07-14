@@ -86,5 +86,14 @@ public class HomeController {
 		model.addAttribute("product", product);
 		return "detailProduct";
 	}
+	
+	@GetMapping({"/emptyCart"})
+	public String emptycart() {
+		return "emptyCart";
+	}
+	@GetMapping({"/shopProfile"})
+	public String shop1() {
+		return "shop";
+	}
 
 }

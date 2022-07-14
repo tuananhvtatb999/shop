@@ -1,0 +1,24 @@
+.user-infor-address{
+    background-color: #fff;
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 500;
+}.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+.styled-table thead tr {
+    color: #a3a3a3;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.edit-adr{
+    color: red;
+}
