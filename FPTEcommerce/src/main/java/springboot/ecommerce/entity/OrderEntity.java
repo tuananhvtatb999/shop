@@ -28,7 +28,7 @@ public class OrderEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private Float orderPrice;
+	private Double orderPrice;
 	
 	private Integer status;
 	
@@ -36,7 +36,11 @@ public class OrderEntity {
 	
 	@OneToMany(mappedBy = "orderEntity")
 	private List<OrderDetailEntity> orderDetailEntity;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "id_user")
+	private UserEntity userEntity;
+
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(mappedBy = "OrderEntity")
 	private List<UserEntity> users;

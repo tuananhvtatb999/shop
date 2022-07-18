@@ -1028,7 +1028,7 @@
                             <div class="order-box__next-actions">
                                 <div class="order-box__next-actions__text"></div>
                                 <div class="order-box__next-actions__button-list"><a class="btn btn-badge"
-                                                                                     href="${pageContext.request.contextPath}/customer/check-out">
+                                                                                     href="${pageContext.request.contextPath}/order">
                                     <span>Mua Ngay</span>
                                 </a>
                                 </div>

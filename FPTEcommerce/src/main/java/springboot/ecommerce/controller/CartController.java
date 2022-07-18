@@ -14,13 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import springboot.ecommerce.dto.CartDto;
 import springboot.ecommerce.dto.ProductInCart;
 import springboot.ecommerce.dto.UserDto;
-import springboot.ecommerce.entity.ProductEntity;
-import springboot.ecommerce.entity.UserEntity;
+import springboot.ecommerce.entity.*;
+import springboot.ecommerce.repository.OrderDetailRepository;
+import springboot.ecommerce.repository.OrderRepository;
 import springboot.ecommerce.repository.ProductRepository;
+import springboot.ecommerce.service.ShopService;
 import springboot.ecommerce.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -30,7 +33,16 @@ public class CartController {
     private ProductRepository productRepository;
 
     @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
+    private OrderDetailRepository orderDetailRepository;
+
+    @Autowired
     private UserService userService;
+
+    @Autowired
+    private ShopService shopService;
 
     @GetMapping(value = "/cart")
     public String cartView(final HttpServletRequest request){
@@ -77,6 +89,23 @@ public class CartController {
             cart.getProductInCarts().add(productInCart);
         }
 
+        Double total = 0.0;
+        if (session.getAttribute("TOTAL") != null) {
+            total = (Double) session.getAttribute("TOTAL");
+        } else {
+            session.setAttribute("TOTAL", total);
+        }
+        for (ProductInCart item : cart.getProductInCarts()){
+            float price = item.getPromotionPrice() * item.getQuantity();
+            total += price;
+        }
+        if (session.getAttribute("TOTAL") != null) {
+            total = (Double) session.getAttribute("TOTAL");
+        } else {
+            session.setAttribute("TOTAL", total);
+        }
+        session.setAttribute("TOTAL", total);
+
         session.setAttribute("QUANTITY_PRODUCT_IN_CART", cart.getProductInCarts().size());
         return ResponseEntity.ok(String.valueOf(cart.getProductInCarts().size()));
     }
@@ -96,6 +125,7 @@ public class CartController {
             float price = item.getPromotionPrice() * item.getQuantity();
             total += price;
         }
+        session.setAttribute("TOTAL", total);
         return ResponseEntity.ok(total);
     }
 
@@ -129,5 +159,36 @@ public class CartController {
         modelMap.addAttribute("phone", entity.getPhoneNumber());
         modelMap.addAttribute("address", entity.getAddress());
         return "userCheckOut";
+    }
+
+    @GetMapping("/order")
+    public String saveOrder(final HttpServletRequest request){
+        HttpSession session = request.getSession();
+
+        CartDto cartDto = (CartDto) session.getAttribute("CART");
+        String email = "";
+        Object x = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(x instanceof UserDetails){
+            email = ((UserDetails) x).getUsername();
+        }
+        UserEntity entity = userService.findByEmail(email);
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setOrderPrice((Double) session.getAttribute("TOTAL"));
+        orderEntity.setCreateDateOrder(LocalDate.now());
+        orderEntity.setUserEntity(entity);
+        orderRepository.save(orderEntity);
+
+        for (ProductInCart item: cartDto.getProductInCarts()) {
+            OrderDetailEntity orderDetailEntity = new OrderDetailEntity();
+            orderDetailEntity.setCreateDateOrder(LocalDate.now());
+            orderDetailEntity.setOrderEntity(orderEntity);
+            orderDetailEntity.setTotalPrice(item.getUnitPrice() * item.getQuantity());
+            orderDetailEntity.setTotalDiscountPrice(item.getPromotionPrice() * item.getQuantity());
+            ProductEntity productEntity = productRepository.getById(item.getId());
+            orderDetailEntity.setProductEntity(productEntity);
+            orderDetailRepository.save(orderDetailEntity);
+        }
+
+        return "redirect:/";
     }
 }
