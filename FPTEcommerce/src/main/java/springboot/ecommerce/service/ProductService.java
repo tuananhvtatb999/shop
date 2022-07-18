@@ -14,6 +14,8 @@ public interface ProductService {
 
 	public List<ProductEntity> getList();
 
+	public Page<ProductEntity> getByIdShop(int page, Integer id);
+
 	public List<ProductEntity> getListByDate();
 
 	public Page<ProductEntity> getProductByNameOrCode(String keyword, int page, Integer id);

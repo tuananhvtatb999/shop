@@ -92,6 +92,7 @@ public class HomeController {
 	public String shop(Model model, @RequestParam(name = "id") Integer id) {
 		ShopEntity shop = shopService.findById(id);
 		model.addAttribute("shop", shop);
+		model.addAttribute("products", productService.getByIdShop(FIRST_PAGE, id).getContent());
 		return "shop";
 	}
 	

@@ -1,13 +1,5 @@
 package springboot.ecommerce.service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -17,89 +9,97 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
 import springboot.ecommerce.dto.ProductDto;
-import springboot.ecommerce.dto.ShopDto;
 import springboot.ecommerce.dto.ProductSearchDto;
 import springboot.ecommerce.entity.ProductEntity;
 import springboot.ecommerce.repository.ProductRepository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
+import java.util.Optional;
 
 @PropertySource(value = "classpath:common.properties")
 @Service
 public class ProductServiceImpl implements ProductService {
 
-	@Autowired
-	ProductRepository productRepository;
-	
-	@Autowired
-	private EntityManager manager;
-	
-	@Override
-	public ProductEntity saveProduct(ProductEntity product) {
-		// TODO Auto-generated method stub
-		return productRepository.save(product);
-	}
+    @Autowired
+    ProductRepository productRepository;
 
-	@Override
-	public List<ProductEntity> getList() {
-		// TODO Auto-generated method stub
-		return productRepository.findAll();
-	}
+    @Autowired
+    private EntityManager manager;
 
-	@Override
-	public List<ProductEntity> getListByDate() {
-		return productRepository.findAllByDate();
-	}
+    @Override
+    public ProductEntity saveProduct(ProductEntity product) {
+        // TODO Auto-generated method stub
+        return productRepository.save(product);
+    }
 
-	@Value("${common.paging.number}")
-	public int pagingNumber;
+    @Override
+    public List<ProductEntity> getList() {
+        // TODO Auto-generated method stub
+        return productRepository.findAll();
+    }
 
-	@Override
-	public Page<ProductEntity> getProductByNameOrCode(String keyword, int page, Integer id) {
-		if (keyword != null && keyword.length() > 0) {
-			return (Page<ProductEntity>) productRepository.findAllByNameOrCode(keyword,
-					PageRequest.of(page - 1, pagingNumber), id);
-		} else {
-			return (Page<ProductEntity>) productRepository.findAll1(PageRequest.of(page - 1, pagingNumber), id);
+    @Override
+    public Page<ProductEntity> getByIdShop(int page, Integer id) {
+        return productRepository.findAll1(PageRequest.of(page - 1, pagingNumber), id);
+    }
 
-		}
-	}
+    @Override
+    public List<ProductEntity> getListByDate() {
+        return productRepository.findAllByDate();
+    }
 
-	@Override
-	public Page<ProductEntity> getProductPaging(int page, Integer id) {
-		// TODO Auto-generated method stub
-		return (Page<ProductEntity>) productRepository.findAll1(PageRequest.of(page - 1, pagingNumber), id);
-	}
+    @Value("${common.paging.number}")
+    public int pagingNumber;
 
-	@Override
-	public List<ProductEntity> getList1(int id) {
-		// TODO Auto-generated method stub
-		return productRepository.findAll2(id);
-	}
-	
-	@Override
-	public Page<ProductEntity> getProductsPaging1(int page) {
-		// TODO Auto-generated method stub
-		return (Page<ProductEntity>) productRepository.getListByStatus(PageRequest.of(page - 1, pagingNumber));
-	}
+    @Override
+    public Page<ProductEntity> getProductByNameOrCode(String keyword, int page, Integer id) {
+        if (keyword != null && keyword.length() > 0) {
+            return (Page<ProductEntity>) productRepository.findAllByNameOrCode(keyword,
+                    PageRequest.of(page - 1, pagingNumber), id);
+        } else {
+            return (Page<ProductEntity>) productRepository.findAll1(PageRequest.of(page - 1, pagingNumber), id);
 
-	@Override
-	public Page<ProductEntity> getProductByNameOrCode(String keyword, int page) {
-		if (keyword != null && keyword.length() > 0) {
-			return (Page<ProductEntity>) productRepository.findAllByNameOrCode1(keyword,
-					PageRequest.of(page - 1, pagingNumber));
-		} else {
-			return (Page<ProductEntity>) productRepository.getListByStatus(PageRequest.of(page - 1, pagingNumber));
+        }
+    }
 
-		}
-	}
+    @Override
+    public Page<ProductEntity> getProductPaging(int page, Integer id) {
+        // TODO Auto-generated method stub
+        return (Page<ProductEntity>) productRepository.findAll1(PageRequest.of(page - 1, pagingNumber), id);
+    }
 
-	@Override
-	public Optional<ProductEntity> getProductById(int id) {
-		return (Optional<ProductEntity>) productRepository.findById(id);
-	}
-	
-	@Override
+    @Override
+    public List<ProductEntity> getList1(int id) {
+        // TODO Auto-generated method stub
+        return productRepository.findAll2(id);
+    }
+
+    @Override
+    public Page<ProductEntity> getProductsPaging1(int page) {
+        // TODO Auto-generated method stub
+        return (Page<ProductEntity>) productRepository.getListByStatus(PageRequest.of(page - 1, pagingNumber));
+    }
+
+    @Override
+    public Page<ProductEntity> getProductByNameOrCode(String keyword, int page) {
+        if (keyword != null && keyword.length() > 0) {
+            return (Page<ProductEntity>) productRepository.findAllByNameOrCode1(keyword,
+                    PageRequest.of(page - 1, pagingNumber));
+        } else {
+            return (Page<ProductEntity>) productRepository.getListByStatus(PageRequest.of(page - 1, pagingNumber));
+
+        }
+    }
+
+    @Override
+    public Optional<ProductEntity> getProductById(int id) {
+        return (Optional<ProductEntity>) productRepository.findById(id);
+    }
+
+    @Override
     public Page<ProductDto> search(ProductSearchDto dto, int pageIndex, int pageSize) {
         String whereClause = "";
         String orderBy = "";
@@ -113,21 +113,21 @@ public class ProductServiceImpl implements ProductService {
 
         String sqlCount = "select count(p.id) from ProductEntity as p inner join ShopEntity as s on p.shopEntity.id = s.id where 1=1 ";
         String sql = "select new springboot.ecommerce.dto.ProductDto(p, s) from ProductEntity as p inner join ShopEntity as s on p.shopEntity.id = s.id ";
-      
+
 
         if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())) {
             whereClause += "and (p.name like :name) ";
         }
 
-        if (!dto.getCategory().isEmpty()){
-			whereClause += " and (p.subCategoryEntity.codeSub in (:category)) ";
-		}
+        if (!dto.getCategory().isEmpty()) {
+            whereClause += " and (p.subCategoryEntity.codeSub in (:category)) ";
+        }
 
-        if(!dto.getSize().isEmpty()){
-            sql+= " inner join ProductDetailsEntity pde on p.productDetailsEntity.id = pde.id where 1=1 ";
+        if (!dto.getSize().isEmpty()) {
+            sql += " inner join ProductDetailsEntity pde on p.productDetailsEntity.id = pde.id where 1=1 ";
             whereClause += " and (p.productDetailsEntity.size in (:size)) ";
-        }else {
-        	sql += where11;
+        } else {
+            sql += where11;
         }
 
         sql += whereClause + orderBy;
@@ -141,12 +141,12 @@ public class ProductServiceImpl implements ProductService {
             qCount.setParameter("name", '%' + dto.getKeyWord().trim() + '%');
         }
 
-        if (!dto.getCategory().isEmpty()){
+        if (!dto.getCategory().isEmpty()) {
             q.setParameter("category", dto.getCategory());
             qCount.setParameter("category", dto.getCategory());
         }
 
-        if (!dto.getSize().isEmpty()){
+        if (!dto.getSize().isEmpty()) {
             q.setParameter("size", dto.getSize());
             qCount.setParameter("size", dto.getSize());
         }
@@ -163,28 +163,28 @@ public class ProductServiceImpl implements ProductService {
         return new PageImpl<>(entities, pageable, count);
     }
 
-	@Override
-	public ProductEntity getProductOneById(Integer id) {
-		// TODO Auto-generated method stub
-		return productRepository.getProductOneById(id);
-	}
-	
-	@Override
-	public void deleteProductById(int id) {
-		productRepository.deleteById(id);
-	}
-	
-	@Override
-	public List<ProductEntity> getListByStatus() {
-		// TODO Auto-generated method stub
-		return productRepository.getListByStatus1();
-	}
-	
-	@Override
-	public void updateProductStatus(int id, int status) {
-		ProductEntity product = productRepository.findById(id).get();
-		product.setStatus(status);
-		productRepository.save(product);
-	}
+    @Override
+    public ProductEntity getProductOneById(Integer id) {
+        // TODO Auto-generated method stub
+        return productRepository.getProductOneById(id);
+    }
+
+    @Override
+    public void deleteProductById(int id) {
+        productRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ProductEntity> getListByStatus() {
+        // TODO Auto-generated method stub
+        return productRepository.getListByStatus1();
+    }
+
+    @Override
+    public void updateProductStatus(int id, int status) {
+        ProductEntity product = productRepository.findById(id).get();
+        product.setStatus(status);
+        productRepository.save(product);
+    }
 
 }

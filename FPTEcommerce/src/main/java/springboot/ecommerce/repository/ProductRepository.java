@@ -40,4 +40,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 	
 	@Query("Select d from ProductEntity d where d.name like %:keyword% or d.code like %:keyword%" )
 	public Page<ProductEntity> findAllByNameOrCode1(@Param("keyword") String keyword, Pageable pageable);
+
+	@Query("Select d from ProductEntity d where d.shopEntity.id = :idShop" )
+	Page<ProductEntity> getAllByShopId(@Param("idShop") Integer idShop , Pageable pageable);
 }

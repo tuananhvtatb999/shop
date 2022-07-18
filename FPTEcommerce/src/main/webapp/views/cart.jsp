@@ -171,9 +171,9 @@
 
                                 <div class="order-box__mid-midle">
                                     <div class="product__quantity-wrapper button-container">
-                                        <span class="minus" onclick="Product.changeAmountMinus(${item.id}, ${total}, ${item.promotionPrice});">-</span>
-                                        <span class="product__quantity qty" id="quantity" >${item.quantity}</span>
-                                        <span class="plus" onclick="Product.changeAmountAdd(${item.id}, ${total}, ${item.promotionPrice})">+</span>
+                                        <span class="minus" onclick="Product.changeAmountMinus(${item.id}, ${item.promotionPrice}, this);">-</span>
+                                        <span class="product__quantity qty" id="${item.id}">${item.quantity}</span>
+                                        <span class="plus" onclick="Product.changeAmountAdd(${item.id}, ${item.promotionPrice}, this)">+</span>
 
                                     </div>
                                 </div>

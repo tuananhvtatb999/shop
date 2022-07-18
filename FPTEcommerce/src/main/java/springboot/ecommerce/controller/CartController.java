@@ -82,18 +82,21 @@ public class CartController {
     }
 
     @PostMapping("update-cart")
-    public ResponseEntity<String> update(@RequestBody ProductInCart productInCart,
+    public ResponseEntity<Double> update(@RequestBody ProductInCart productInCart,
             final HttpServletRequest request){
         HttpSession session = request.getSession();
 
         CartDto cartDto = (CartDto) session.getAttribute("CART");
+        Double total = 0.0;
 
         for (ProductInCart item : cartDto.getProductInCarts()){
             if(item.getId() == productInCart.getId()){
                 item.setQuantity(productInCart.getQuantity());
             }
+            float price = item.getPromotionPrice() * item.getQuantity();
+            total += price;
         }
-        return ResponseEntity.ok(String.valueOf(cartDto.getProductInCarts().size()));
+        return ResponseEntity.ok(total);
     }
 
     @GetMapping(value = "/remove-product-in-cart/{id}")

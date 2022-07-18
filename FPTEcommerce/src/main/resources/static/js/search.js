@@ -124,20 +124,25 @@ var Product = {
         });
     },
 
-    changeAmountMinus: function (id, total, promotionPrice) {
-        var soluong = $('#quantity').text();
-        if(Number(soluong) === 1) {
+    changeAmountMinus: function (id, promotionPrice, element) {
+        var soluong = $('#'+id).text();
+        var res=Number(soluong);
+        if(res=== 1) {
             return;
         }
-        $("#quantity").text(Number(soluong)-1);
+
+        $(element).parent().find('#'+id).text(Number(soluong)-1);
         var quantity = Number(soluong)-1;
-        this.updateCart(id, quantity, total, promotionPrice);
+        var total = $('#total').val();
+        console.log(total)
+        this.updateCart(id, quantity, Number(total), promotionPrice);
     },
 
-    changeAmountAdd: function (id, total, promotionPrice) {
-        var soluong = $('#quantity').text();
-        $("#quantity").text(Number(soluong)+1);
+    changeAmountAdd: function (id, promotionPrice, element) {
+        var soluong = $('#'+id).text();
+        $(element).parent().find('#'+id).text(Number(soluong)+1);
         var quantity = Number(soluong)+1;
+        var total = $('#total').val();
         this.updateCart(id, quantity, total, promotionPrice);
     },
 
@@ -153,7 +158,7 @@ var Product = {
             data: JSON.stringify(data),
             dataType: "json",
             success: function (result) {
-                $("#total").html(total + promotionPrice * quantity);
+                $("#total").html(result);
             }
         });
     }
