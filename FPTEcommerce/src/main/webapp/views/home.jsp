@@ -1440,25 +1440,26 @@
 							test="${listSubCategory !=null && listSubCategory.size() gt 0}">
 							<c:forEach items="${requestScope.listProduct }" var="item"
 								varStatus="theCount">
-								<li class="col c-6 m-4 l-2-4 py-1"><a href="#">
-
+								<li class="col c-6 m-4 l-2-4 py-1"><a
+									href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
 										<div class="card">
 											<div class="card-img">
 												<img src="${item.pathImage }" alt="" />
 											</div>
 											<div class="card-text">
-
-												<a href="detailProduct?id=${item.id }">
-													<h3 class="card-title">
-														<c:out value="${item.name }" />
-													</h3>
-												</a>
-												<p class="card-des truncate">${item.description }</p>
+												<h3 class="card-title">
+													<c:out value="${item.shopEntity.name }" />
+												</h3>
+												<%--<p class="card-des truncate">${item.description }</p> --%>
+												<p class="card-des truncate"
+													href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
+													${item.name }</p>
 												<%-- 	<span class="card-price"> <c:out value="${item.unitPrice }" /> </span> 
  										 <span
 											class="card-price-discount"> -50% </span> --%>
 												<p class="card-price-cost">
-													<c:out value="${item.unitPrice }" />
+													<c:out value="${item.promotionPrice }" />
+													<i> đ</i>
 												</p>
 											</div>
 										</div>
@@ -1588,21 +1589,26 @@
 							test="${listProductDate !=null && listProductDate.size() gt 0}">
 							<c:forEach items="${requestScope.listProductDate }" var="item"
 								varStatus="theCount">
-								<li class="col c-6 m-4 l-2-4 py-1"><a href="#">
+								<li class="col c-6 m-4 l-2-4 py-1"><a
+									href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
 										<div class="card">
 											<div class="card-img">
 												<img src="${item.pathImage }" alt="" />
 											</div>
 											<div class="card-text">
 												<h3 class="card-title">
-													<c:out value="${item.name }" />
+													<c:out value="${item.shopEntity.name }" />
 												</h3>
-												<p class="card-des truncate">${item.description }</p>
+												<%--<p class="card-des truncate">${item.description }</p> --%>
+												<p class="card-des truncate"
+													href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
+													${item.name }</p>
 												<%-- 	<span class="card-price"> <c:out value="${item.unitPrice }" /> </span> 
  										 <span
 											class="card-price-discount"> -50% </span> --%>
 												<p class="card-price-cost">
-													<c:out value="${item.unitPrice }" />
+													<c:out value="${item.promotionPrice }" />
+													<i> đ</i>
 												</p>
 											</div>
 										</div>
@@ -1651,22 +1657,26 @@
 							test="${listSubCategory !=null && listSubCategory.size() gt 0}">
 							<c:forEach items="${requestScope.listProduct }" var="item"
 								varStatus="theCount">
-								<li class="col c-6 m-4 l-2-4 py-1"><a href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
-
+								<li class="col c-6 m-4 l-2-4 py-1"><a
+									href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
 										<div class="card">
 											<div class="card-img">
 												<img src="${item.pathImage }" alt="" />
 											</div>
 											<div class="card-text">
 												<h3 class="card-title">
-													<c:out value="${item.name }" />
+													<c:out value="${item.shopEntity.name }" />
 												</h3>
-												<p class="card-des truncate">${item.description }</p>
+												<%--<p class="card-des truncate">${item.description }</p> --%>
+												<p class="card-des truncate"
+													href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
+													${item.name }</p>
 												<%-- 	<span class="card-price"> <c:out value="${item.unitPrice }" /> </span> 
  										 <span
 											class="card-price-discount"> -50% </span> --%>
 												<p class="card-price-cost">
-													<c:out value="${item.unitPrice }" />
+													<c:out value="${item.promotionPrice }" />
+													<i> đ</i>
 												</p>
 											</div>
 										</div>

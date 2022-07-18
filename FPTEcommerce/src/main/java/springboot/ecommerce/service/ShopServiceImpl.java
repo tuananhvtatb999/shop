@@ -107,4 +107,10 @@ public class ShopServiceImpl implements ShopService {
 		return new PageImpl<>(shopDtoList, pageable, countShop);
 	}
 
+	@Override
+	public ShopEntity findById(Integer id) {
+		
+		return shopRepository.getById(id);
+	}
+
 }

@@ -70,9 +70,7 @@
 					<li class="header-bottom-item"><a href="#"> <span
 							class="header-bottom-item-text text-hover active">Shopping</span>
 					</a></li>
-					<li class="header-bottom-item"><a href="#"> <span
-							class="header-bottom-item-text text-hover">Style</span>
-					</a></li>
+					
 				</ul>
 				<!-- end Header-left -->
 				<!-- Header-center -->

@@ -23,4 +23,6 @@ public interface ShopService {
 	void updateShopStatus(int id, int status);
 	
 	public Page<ShopDto> search(ProductSearchDto dto, int pageIndex, int pageSize);
+	
+	ShopEntity findById(Integer id);
 }

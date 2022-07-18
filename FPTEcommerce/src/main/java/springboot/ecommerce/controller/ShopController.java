@@ -152,7 +152,7 @@ public class ShopController {
 		DiscountEntity discount = product.getDiscountEntity();
 		discount.setShopEntity(shop);
 		product.setShopEntity(shop);
-	//	product.setStatusCode(0);
+		product.setStatus(0);
 		productService.saveProduct(product);
 		return "redirect:/shop/listProduct";
 	}

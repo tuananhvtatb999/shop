@@ -225,7 +225,7 @@
 													cssClass="form-control" placeholder="100"
 													aria-label="Amount (to the nearest dollar)"
 													path="unitPrice" />
-												<span class="input-group-text">.00</span>
+												
 											</div>
 										</div>
 									</div>

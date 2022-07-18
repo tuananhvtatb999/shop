@@ -87,6 +87,14 @@ public class HomeController {
 		return "detailProduct";
 	}
 	
+	
+	@GetMapping({"/shop"})
+	public String shop(Model model, @RequestParam(name = "id") Integer id) {
+		ShopEntity shop = shopService.findById(id);
+		model.addAttribute("shop", shop);
+		return "shop";
+	}
+	
 	@GetMapping({"/emptyCart"})
 	public String emptycart() {
 		return "emptyCart";
