@@ -1,5 +1,6 @@
 package springboot.ecommerce.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContext;
@@ -162,7 +163,7 @@ public class CartController {
     }
 
     @GetMapping("/order")
-    public String saveOrder(final HttpServletRequest request){
+    public String saveOrder(final HttpServletRequest request, final ModelMap modelMap){
         HttpSession session = request.getSession();
 
         CartDto cartDto = (CartDto) session.getAttribute("CART");
@@ -188,6 +189,10 @@ public class CartController {
             orderDetailEntity.setProductEntity(productEntity);
             orderDetailRepository.save(orderDetailEntity);
         }
+
+        session.removeAttribute("CART");
+        session.removeAttribute("TOTAL");
+        session.removeAttribute("QUANTITY_PRODUCT_IN_CART");
 
         return "redirect:/";
     }
