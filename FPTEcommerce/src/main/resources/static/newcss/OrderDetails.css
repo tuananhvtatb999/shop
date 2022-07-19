@@ -33,6 +33,23 @@
   font-size: 1rem;
 }
 
+.btnArond {
+  float: right;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.btnArond button {
+  margin: 20px 0px 0px 20px;
+}
+.btnArond .btn-warning {
+  margin-right: 20px;
+}
+.btnArond .primary {
+  height: 40px;
+  margin-top: 20px;
+}
+
 /* ============= MEDIA =========== */
 
 @media screen and (max-width: 430px) {
@@ -45,7 +62,7 @@
   }
 }
 
-/*Tablet nhỏ(480 x 640)*/
+/*Tablet nhá»�(480 x 640)*/
 
 @media screen and (max-width: 700px) {
 

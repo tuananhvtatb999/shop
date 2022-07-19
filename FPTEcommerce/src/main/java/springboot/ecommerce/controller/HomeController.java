@@ -96,6 +96,8 @@ public class HomeController {
 		return "shop";
 	}
 	
+	
+	//------ test View-------
 	@GetMapping({"/emptyCart"})
 	public String emptycart() {
 		return "emptyCart";
@@ -103,6 +105,18 @@ public class HomeController {
 	@GetMapping({"/shopProfile"})
 	public String shop1() {
 		return "shop";
+	}
+	@GetMapping({"/listOrder"})
+	public String listOrder() {
+		return "listOrder";
+	}
+	@GetMapping({"/orderDetail"})
+	public String orderDetail() {
+		return "orderDetail";
+	}
+	@GetMapping({"/listOrderCancel"})
+	public String listOrderCancel() {
+		return "listOrderCancel";
 	}
 
 }
