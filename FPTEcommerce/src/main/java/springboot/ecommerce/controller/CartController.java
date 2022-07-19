@@ -185,6 +185,8 @@ public class CartController {
             orderDetailEntity.setOrderEntity(orderEntity);
             orderDetailEntity.setTotalPrice(item.getUnitPrice() * item.getQuantity());
             orderDetailEntity.setTotalDiscountPrice(item.getPromotionPrice() * item.getQuantity());
+            orderDetailEntity.setStatus(1);
+            orderDetailEntity.setQuantity(item.getQuantity());
             ProductEntity productEntity = productRepository.getById(item.getId());
             orderDetailEntity.setProductEntity(productEntity);
             orderDetailRepository.save(orderDetailEntity);

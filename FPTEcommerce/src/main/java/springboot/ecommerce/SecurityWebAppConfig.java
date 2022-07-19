@@ -50,7 +50,7 @@ public class SecurityWebAppConfig extends WebSecurityConfigurerAdapter {
 				// cho phép tất cả các user đều được phép truy cập
 				.permitAll()
 				// khai báo đường dẫn của request
-				.antMatchers("/customer/*")
+				.antMatchers("/customer/**")
 				// chỉ cho phép các user có GrantedAuthority là MEMBER mới được phép truy cập
 				//.hasAnyRole(new String[] {"CUSTOMER","SHOP"})
 				.hasAnyRole("CUSTOMER")

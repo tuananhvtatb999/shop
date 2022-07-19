@@ -29,6 +29,10 @@ public class OrderDetailEntity {
 	private Float totalDiscountPrice;
 	
 	private LocalDate createDateOrder;
+
+	private Integer status;
+
+	private Integer quantity;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_product")
