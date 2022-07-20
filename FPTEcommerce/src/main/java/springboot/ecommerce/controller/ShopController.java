@@ -3,12 +3,14 @@ package springboot.ecommerce.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import springboot.ecommerce.dto.OrderDetailDto;
 import springboot.ecommerce.entity.*;
 import springboot.ecommerce.service.*;
 
@@ -546,6 +548,14 @@ public class ShopController {
         modelMap.addAttribute("orders", orderDetailEntity);
         modelMap.addAttribute("user", userEntity);
         return "orderDetail";
+    }
+
+    @PostMapping(value = "/update-status-order")
+    public ResponseEntity<Integer> updateStatusOrder(@RequestBody OrderDetailDto dto, final ModelMap modelMap) {
+        OrderDetailEntity orderDetailEntity = orderDetailService.getById(dto.getId());
+        orderDetailEntity.setStatus(dto.getStatus());
+        orderDetailService.save(orderDetailEntity);
+        return ResponseEntity.ok(200);
     }
 
 }

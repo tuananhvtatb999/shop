@@ -11,4 +11,6 @@ public interface OrderDetailService {
     List<OrderDetailEntity> getByShopId(Integer shopId);
 
     OrderDetailEntity getById(Integer id);
+
+    void save(OrderDetailEntity orderDetailEntity);
 }

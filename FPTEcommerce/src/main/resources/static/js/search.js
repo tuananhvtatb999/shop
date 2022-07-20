@@ -161,5 +161,24 @@ var Product = {
                 $("#total").html(result);
             }
         });
+    },
+    updateStatusOrder: function (id, status) {
+        var data = {};
+        data["id"] = id;
+        data["status"] = status;
+
+        $.ajax({
+            url: "/shop/update-status-order",
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: "json",
+            success: function (result) {
+                $("#status").empty();
+                if(status === 3){
+                    $("#status").append('<lable class="badge bg-label-primary">Đang giao</lable>');
+                }
+            }
+        });
     }
 }

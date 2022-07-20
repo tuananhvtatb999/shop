@@ -41,4 +41,9 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         }
         return orderDetailRepository.getById(id);
     }
+
+    @Override
+    public void save(OrderDetailEntity orderDetailEntity) {
+        orderDetailRepository.save(orderDetailEntity);
+    }
 }
