@@ -77,8 +77,10 @@
 				<div class="content">
 					<h3>One of us ?</h3>
 					<p>FPT E-Commerce</p>
-					<button class="btn transparent" id="sign-in-btn"
-						onclick="window.location.href='/login.html'">Sign In</button>
+					<a  href="${pageContext.request.contextPath}/login">
+					<button class="btn transparent" id="sign-in-btn">Đăng nhập</button>
+					</a>
+					
 				</div>
 
 				<img

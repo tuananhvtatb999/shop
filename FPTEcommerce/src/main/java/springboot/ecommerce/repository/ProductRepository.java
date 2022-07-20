@@ -21,12 +21,24 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 	@Query("Select d from ProductEntity d where (d.code like %:keyword% or d.name like %:keyword%) and d.shopEntity.id = :idShop")
 	public Page<ProductEntity> findAllByNameOrCode(@Param("keyword") String keyword, Pageable pageable,
 			@Param("idShop") Integer idShop);
+	
+	@Query("Select d from ProductEntity d where (d.code like %:keyword% or d.name like %:keyword%) and d.shopEntity.id = :idShop and d.status = 2")
+	public Page<ProductEntity> findAllByNameOrCodeBanned(@Param("keyword") String keyword, Pageable pageable,
+			@Param("idShop") Integer idShop);
 
 	@Query("Select d from ProductEntity d where d.shopEntity.id = ?1")
 	public Page<ProductEntity> findAll1(Pageable pageable, Integer idShop);
 
+	@Query("Select d from ProductEntity d where d.shopEntity.id = ?1 and d.status=2")
+	public Page<ProductEntity> findAllBanned(Pageable pageable, Integer idShop);
+	
 	@Query("Select d from ProductEntity d where d.shopEntity.id = ?1")
 	public List<ProductEntity> findAll2(Integer idShop);
+	
+	@Query("Select d from ProductEntity d where d.shopEntity.id = ?1 and d.status = 2")
+	public List<ProductEntity> findAllBanned(Integer idShop);
+	
+	
 	
 	@Query("Select d from ProductEntity d where d.id = ?1")
 	public ProductEntity getProductOneById(Integer id);

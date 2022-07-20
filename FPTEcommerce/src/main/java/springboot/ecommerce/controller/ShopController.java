@@ -466,5 +466,73 @@ public class ShopController {
 
 		return "redirect:/shop/listDiscount";
 	}
+	
+//----------PRODUCT BANNED------------
+	@GetMapping("/listProductBanned")
+	public String getProductBanned(Model model, HttpSession session, Integer id) {
+		id = (Integer) session.getAttribute("idShop");
+		if (session.getAttribute("search") != null && session.getAttribute("search").equals("on")) {
+			model.addAttribute("listProduct", session.getAttribute("listSearch"));
+			model.addAttribute("totalPage", session.getAttribute("totalPage"));
+			model.addAttribute("totalItems", session.getAttribute("totalItems"));
+			session.removeAttribute("listSearch");
+			session.removeAttribute("totalPage");
+			session.removeAttribute("totalItems");
+			session.removeAttribute("search");
+		} else {
+			id = (Integer) session.getAttribute("idShop");
+			List<ProductEntity> listProduct = productService.getProductBanned(id);
+			model.addAttribute("listProduct", listProduct);
+			model.addAttribute("currentPage", FIRST_PAGE);
+			model.addAttribute("listProduct", productService.getProductPagingBanned(FIRST_PAGE, id).getContent());
+			model.addAttribute("totalPage", productService.getProductPagingBanned(FIRST_PAGE, id).getTotalPages());
+			model.addAttribute("totalItems", productService.getProductPagingBanned(FIRST_PAGE, id).getTotalElements());
+			session.removeAttribute("keyword");
+		}
+
+		model.addAttribute("path", "shop/listProductBanned");
+//		id = (Integer) session.getAttribute("idShop");
+//		model.addAttribute("listDiscount", discountService.getList(id));
+		return "listProductBanned";
+	}
+	
+	@GetMapping("/listProductBanned/{page}")
+	public String getProductBannedPaging(Model model, @PathVariable(name = "page") int pageNum, HttpSession session,
+			Integer id) {
+		id = (Integer) session.getAttribute("idShop");
+		String keyword = (String) session.getAttribute("keyword");
+		if (keyword != null) {
+			model.addAttribute("listProduct", productService.getProductByNameOrCodeBanned(keyword, pageNum, id).getContent());
+			model.addAttribute("totalPage",
+					productService.getProductByNameOrCodeBanned(keyword, pageNum, id).getTotalPages());
+			model.addAttribute("totalItems",
+					productService.getProductByNameOrCodeBanned(keyword, pageNum, id).getTotalElements());
+
+		} else {
+			id = (Integer) session.getAttribute("idShop");
+			List<ProductEntity> listProduct = productService.getProductBanned(id);
+			model.addAttribute("listProduct", listProduct);
+			model.addAttribute("currentPage", pageNum);
+			model.addAttribute("totalPage", productService.getProductPagingBanned(pageNum, id).getTotalPages());
+			model.addAttribute("totalItems", productService.getProductPagingBanned(pageNum, id).getTotalElements());
+			model.addAttribute("listProduct", productService.getProductPagingBanned(pageNum, id).getContent());
+		}
+		model.addAttribute("path", "shop/listProductBanned");
+		return "listProductBanned";
+	}
+	
+	@GetMapping("/doSearchProductBanned")
+	public String getProductPageBySearchBanned(Model model, @RequestParam(name = "keyword") String keyword,
+			@RequestParam(name = "idShop") Integer id, HttpSession session) {
+		session.setAttribute("listSearch", productService.getProductByNameOrCodeBanned(keyword, FIRST_PAGE, id).getContent());
+		session.setAttribute("totalPage",
+				productService.getProductByNameOrCodeBanned(keyword, FIRST_PAGE, id).getTotalPages());
+		session.setAttribute("totalItems",
+				productService.getProductByNameOrCodeBanned(keyword, FIRST_PAGE, id).getTotalElements());
+		session.setAttribute("search", "on");
+		session.setAttribute("keyword", keyword);
+		return "redirect:/shop/listProductBanned";
+
+	}
 
 }

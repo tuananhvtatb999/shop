@@ -138,7 +138,7 @@
 					<li class="menu-item active"><a href="index.html"
 						class="menu-link"> <i
 							class="menu-icon tf-icons bx bx-home-circle"></i>
-							<div data-i18n="Analytics">Dashboard</div>
+							<div data-i18n="Analytics">Bảng điều khiển</div>
 					</a></li>
 
 					<!-- E-Commerce -->
@@ -147,32 +147,32 @@
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <i
 							class="menu-icon tf-icons bx bx-dock-top"></i>
-							<div data-i18n="Category">Caregory</div>
+							<div data-i18n="Category">Danh mục</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./CategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listCategory"
 								class="menu-link">
-									<div data-i18n="CategoryList">Category List</div>
+									<div data-i18n="CategoryList">Tất cả danh mục</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addCategory"
 								class="menu-link">
-									<div data-i18n="AddSubCategory">Add Category</div>
+									<div data-i18n="AddSubCategory">Thêm danh mục</div>
 							</a></li>
 
 						</ul></li>
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <!-- <i class="menu-icon tf-icons bx bx-dock-top"></i> -->
 							<i class="menu-icon tf-icons bx bx-copy"></i>
-							<div data-i18n="SubCategory">Sub Caregory</div>
+							<div data-i18n="SubCategory">Danh mục phụ</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./SubCategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listSubCategory"
 								class="menu-link">
-									<div data-i18n="SubCategoryList">Sub Category List</div>
+									<div data-i18n="SubCategoryList">Tất cả danh mục phụ</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddSubCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addSubCategory"
 								class="menu-link">
-									<div data-i18n="AddSubCategory">Add Sub Category</div>
+									<div data-i18n="AddSubCategory">Thêm danh mục phụ</div>
 							</a></li>
 
 						</ul></li>
@@ -245,7 +245,7 @@
 							<div class="navbar-nav align-items-center">
 								<div class="nav-item d-flex align-items-center">
 									<input type="text" class="form-control border-0 shadow-none"
-										placeholder="Search..." aria-label="Search..." name="keyword" />
+										placeholder="Tìm kiếm..." aria-label="Search..." name="keyword" />
 								</div>
 								<div class="input-group-prepend">
 									<button class="btn btn-outline-secondary" type="submit"
@@ -333,13 +333,12 @@
 							<div class="card mb-4 ">
 
 								<div class="header-table">
-									<h4 class="card-header">Category List</h4>
+									<h4 class="card-header">Tất cả danh mục</h4>
 									<div class="btn btnArond button-wrapper">
 										<a href="${pageContext.request.contextPath}/admin/addSubCategory">
 											<button type="button" class="btn btn-primary"
 												>
-												<i class="fas fa-plus icon-fas"></i> <span>Add New Sub
-													Category</span>
+												<i class="fas fa-plus icon-fas"></i> <span>Thêm danh mục phụ</span>
 											</button>
 										</a>
 										<!-- <button type="button" class="btn btn-primary"><i class="fas fa-plus icon-fas"></i>Add Sub-Category</button> -->
@@ -351,9 +350,9 @@
 											<tr>
 
 												<th scope="col">STT</th>
-												<th><strong>CATEGORY</strong></th>
-												<th><strong>NAME SUBCATEGORY</strong></th>
-												<th><strong>CODE SUBCATEGORY</strong></th>
+												<th><strong>DANH MỤC</strong></th>
+												<th><strong>TÊN DANH MỤC PHỤ</strong></th>
+												<th><strong>MÃ DANH MỤC PHỤ</strong></th>
 												<th><strong>Actions</strong></th>
 											</tr>
 										</thead>

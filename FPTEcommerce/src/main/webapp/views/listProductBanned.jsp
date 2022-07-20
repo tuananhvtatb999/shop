@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product List</title>
+<title>Sản phẩm vi phạm</title>
 <!------------ CSS core ------------ -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/newcss/core.css">
@@ -121,7 +121,7 @@
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> <a href="${pageContext.request.contextPath}/shop/addProduct"
+									<a href="${pageContext.request.contextPath}/shop/listProductBanned" class="nav__dropdown-item">Tất cả sản phẩm</a> <a href="${pageContext.request.contextPath}/shop/addProduct"
 										class="nav__dropdown-item">Thêm sản phẩm</a> <a href="${pageContext.request.contextPath}/shop/addProduct"
 										class="nav__dropdown-item">Sản phẩm vi phạm</a>
 								</div>
@@ -166,7 +166,7 @@
 					<div class="col-xxl col-sm-12">
 						<div class="">
 							<form:form
-								action="${pageContext.request.contextPath}/shop/doSearchProduct"
+								action="${pageContext.request.contextPath}/shop/doSearchProductBanned"
 								method="get">
 
 								<div class="card mb-4 ">
@@ -198,14 +198,7 @@
 						<div class="card mb-4">
 							<div class="header-table">
 								<h4 class="card-header">Tất cả sản phẩm</h4>
-								<div class="btnArond">
-									<a href="${pageContext.request.contextPath}/shop/addProduct">
-										<button type="button" class="button btn primary">
-											<i class="fas fa-plus icon-fas"></i> <span>Thêm sản phẩm</span>
-										</button>
-									</a>
-									<!-- <button type="button" class="btn btn-primary"><i class="fas fa-plus icon-fas"></i>Add Sub-Category</button> -->
-								</div>
+								
 							</div>
 							<div class=" table-responsive text-nowrap">
 								<table class="table table-hover">
@@ -226,8 +219,8 @@
 									<tbody class=" table-border-bottom-0">
 										<c:choose>
 											<c:when
-												test="${listProduct !=null && listProduct.size() gt 0}">
-												<c:forEach items="${requestScope.listProduct }" var="item"
+												test="${listProductBanned !=null && listProductBanned.size() gt 0}">
+												<c:forEach items="${requestScope.listProductBanned }" var="item"
 													varStatus="theCount">
 													<tr>
 														<th scope="row"><c:out value="${theCount.count}"></c:out></th>
@@ -247,8 +240,7 @@
 																	<i class="bx bx-dots-vertical-rounded"></i>
 																</button>
 																<div class="dropdown-menu">
-																	<a class="dropdown-item" href="${pageContext.request.contextPath}/shop/updateProduct?id=${item.id }">
-																		<i class="bx bx-edit-alt me-1"></i> Sửa</a>
+																	
 																	<a class="dropdown-item" onclick="showMess(${item.id})">
 																		<i class="bx bx-trash me-1"></i> Xóa</a>
 																</div>

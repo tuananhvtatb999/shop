@@ -114,32 +114,34 @@
                               </a> -->
 
 						<div class="nav__dropdown">
-							<a href="#" class="nav__link"> <i
-								class='bx bx-closet nav__icon'></i> <span class="nav__name">Product</span>
+							<a  class="nav__link"> <i
+								class='bx bx-closet nav__icon'></i> <span class="nav__name">Quản lý sản phẩm</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="/html/ProductList.html" class="nav__dropdown-item">My
-										Products</a> <a href="/html/AddProduct.html"
-										class="nav__dropdown-item">Add New Product</a> <a href="#"
-										class="nav__dropdown-item">Product Banned</a>
+									<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> 
+									
+									<a href="${pageContext.request.contextPath}/shop/addProduct" 
+										class="nav__dropdown-item">Thêm sản phẩm</a> 
+										<a href="#"
+										class="nav__dropdown-item">Sản phẩm vi phạm</a>
 								</div>
 							</div>
 						</div>
 
 						<div class="nav__dropdown">
-							<a href="#" class="nav__link"> <i
-								class='bx bx-task nav__icon'></i> <span class="nav__name">Order</span>
+							<a  class="nav__link"> <i
+								class='bx bx-task nav__icon'></i> <span class="nav__name">Quản lý đơn hàng</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="/html/OrderList.html" class="nav__dropdown-item">My
-										Orders</a> <a href="/html/OrderCancelList.html"
-										class="nav__dropdown-item">Cancellation</a>
+									<a href="${pageContext.request.contextPath}/shop/listOrder" class="nav__dropdown-item">Tất cả đơn hàng</a> 
+									<a href="#"
+										class="nav__dropdown-item">Đơn hàng hủy</a>
 								</div>
 							</div>
 						</div>
@@ -179,7 +181,7 @@
                           <i class="fa-solid fa-chevron-left "></i>
                         </button>
                         <div class="right-content">
-                          <h4 class="card-header-title">Order details</h4>
+                          <h4 class="card-header-title">Chi tiết đơn hàng</h4>
                         </div>
                       </div>
                       <span>
@@ -341,7 +343,7 @@
                   <div class="card">
                     <!-- Header -->
                     <div class="card-header">
-                      <h4 class="card-header-title">Customer</h4>
+                      <h4 class="card-header-title">Khách hàng</h4>
                     </div>
                     <!-- End Header -->
 
@@ -360,7 +362,7 @@
                       <hr>
 
                       <div class="d-flex justify-content-between align-items-center">
-                        <h6>Contact info</h6>
+                        <h6>Thông tin liên lạc</h6>
 
                       </div>
 
@@ -378,7 +380,7 @@
                       <hr>
 
                       <div class="d-flex justify-content-between align-items-center">
-                        <h6>Shipping address</h6>
+                        <h6>Địa chỉ</h6>
 
                       </div>
 

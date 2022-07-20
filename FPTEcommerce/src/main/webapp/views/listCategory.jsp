@@ -134,10 +134,10 @@
 
 				<ul class="menu-inner py-1">
 					<!-- Dashboard -->
-					<li class="menu-item active"><a href="index.html"
+					<li class="menu-item active"><a href="${pageContext.request.contextPath}/admin/mainAdmin"
 						class="menu-link"> <i
 							class="menu-icon tf-icons bx bx-home-circle"></i>
-							<div data-i18n="Analytics">Dashboard</div>
+							<div data-i18n="Analytics">Bảng điều khiển</div>
 					</a></li>
 
 					<!-- E-Commerce -->
@@ -146,32 +146,32 @@
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <i
 							class="menu-icon tf-icons bx bx-dock-top"></i>
-							<div data-i18n="Category">Caregory</div>
+							<div data-i18n="Category">Danh mục</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./CategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listCategory"
 								class="menu-link">
-									<div data-i18n="CategoryList">Category List</div>
+									<div data-i18n="CategoryList">Tất cả danh mục</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addCategory"
 								class="menu-link">
-									<div data-i18n="AddSubCategory">Add Category</div>
+									<div data-i18n="AddSubCategory">Thêm danh mục</div>
 							</a></li>
 
 						</ul></li>
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <!-- <i class="menu-icon tf-icons bx bx-dock-top"></i> -->
 							<i class="menu-icon tf-icons bx bx-copy"></i>
-							<div data-i18n="SubCategory">Sub Caregory</div>
+							<div data-i18n="SubCategory">Danh mục phụ</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./SubCategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listSubCategory"
 								class="menu-link">
-									<div data-i18n="SubCategoryList">Sub Category List</div>
+									<div data-i18n="SubCategoryList">Tất cả danh mục phụ</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddSubCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addSubCategory"
 								class="menu-link">
-									<div data-i18n="AddSubCategory">Add Sub Category</div>
+									<div data-i18n="AddSubCategory">Thêm danh mục phụ</div>
 							</a></li>
 
 						</ul></li>
@@ -334,11 +334,10 @@
 								<div class="header-table">
 									<h4 class="card-header">Category List</h4>
 									<div class="btn btnArond button-wrapper">
-										<a href="./AddCategory.html">
+										<a href="${pageContext.request.contextPath}/admin/addCategory">
 											<button type="button" class="btn btn-primary"
 												href="./AddCategory.html">
-												<i class="fas fa-plus icon-fas"></i> <span>Add New
-													Category</span>
+												<i class="fas fa-plus icon-fas"></i> <span>Thêm danh mục</span>
 											</button>
 										</a>
 										<!-- <button type="button" class="btn btn-primary"><i class="fas fa-plus icon-fas"></i>Add Sub-Category</button> -->

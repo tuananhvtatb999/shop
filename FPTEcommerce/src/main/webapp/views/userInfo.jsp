@@ -140,11 +140,11 @@
 							<ul class="nav-child">
 								<li class="nav-child-item active"
 									data-tab-select="user-information"><a
-									class="nav-child-link" href="../pages/user-information.html">
+									class="nav-child-link" href="#">
 										<span class="menu-child-title">Hồ sơ</span>
 								</a></li>
 								<li class="nav-child-item" data-tab-select="change-password">
-									<a class="nav-child-link" href="../pages/change-password.html">
+									<a class="nav-child-link" href="${pageContext.request.contextPath}/customer/updatePassword">
 										<span class="menu-child-title">Đổi mật khẩu</span>
 								</a>
 								</li>

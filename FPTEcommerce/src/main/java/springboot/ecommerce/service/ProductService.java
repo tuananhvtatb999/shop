@@ -21,7 +21,7 @@ public interface ProductService {
 	public Page<ProductEntity> getProductByNameOrCode(String keyword, int page, Integer id);
 
 	public Page<ProductEntity> getProductPaging(int page, Integer id);
-
+	
 	public List<ProductEntity> getList1(int id);
 
 	public Page<ProductEntity> getProductsPaging1(int page);
@@ -42,4 +42,12 @@ public interface ProductService {
 	
 	//----------delete product  for shop
 	public void deleteProductById(int id);
+	
+	//----------Get product Banned
+	public List<ProductEntity> getProductBanned(int id);
+	
+	public Page<ProductEntity> getProductByNameOrCodeBanned(String keyword, int page, Integer id);
+	
+	public Page<ProductEntity> getProductPagingBanned(int page, Integer id);
+
 }

@@ -71,7 +71,7 @@
             <!-- Header-left -->
             <ul class="header-bottom-left">
                 <li class="header-bottom-logo">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/home">
                         <img src="../assets/img/logo.svg" alt="logo"/>
                     </a>
                 </li>

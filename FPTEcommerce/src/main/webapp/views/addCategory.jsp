@@ -141,10 +141,10 @@
 
 				<ul class="menu-inner py-1">
 					<!-- Dashboard -->
-					<li class="menu-item active"><a href="index.html"
+					<li class="menu-item active"><a href="${pageContext.request.contextPath}/admin/mainAdmin"
 						class="menu-link"> <i
 							class="menu-icon tf-icons bx bx-home-circle"></i>
-							<div data-i18n="Analytics">Dashboard</div>
+							<div data-i18n="Analytics">Bảng điều khiển</div>
 					</a></li>
 
 					<!-- E-Commerce -->
@@ -153,16 +153,16 @@
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <i
 							class="menu-icon tf-icons bx bx-dock-top"></i>
-							<div data-i18n="Category">Caregory</div>
+							<div data-i18n="Category">Danh mục</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./CategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listCategory"
 								class="menu-link">
-									<div data-i18n="CategoryList">Category List</div>
+									<div data-i18n="CategoryList">Tất cả danh mục</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addCategory"
 								class="menu-link">
-									<div data-i18n="AddCategory">Add Category</div>
+									<div data-i18n="AddCategory">Thêm danh mục</div>
 							</a></li>
 
 						</ul></li>
@@ -172,16 +172,16 @@
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <!-- <i class="menu-icon tf-icons bx bx-dock-top"></i> -->
 							<i class="menu-icon tf-icons bx bx-copy"></i>
-							<div data-i18n="SubCategory">Sub Caregory</div>
+							<div data-i18n="SubCategory">Danh mục phụ</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./SubCategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listSubCategory"
 								class="menu-link">
-									<div data-i18n="SubCategoryList">Sub Category List</div>
+									<div data-i18n="SubCategoryList">Tất cả danh mục phụ</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddSubCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addSubCategory"
 								class="menu-link">
-									<div data-i18n="AddSubCategory">Add Sub Category</div>
+									<div data-i18n="AddSubCategory">Thêm danh mục phụ</div>
 							</a></li>
 
 						</ul></li>
@@ -355,24 +355,22 @@
 							<div class="card mb-4 ">
 								<form:form action="doAddCategory" id="form-addCate"
 									method="post" modelAttribute="category">
-									<h4 class="card-header">Add New Category</h4>
+									<h4 class="card-header">THÊM DANH MỤC</h4>
 									<div class="card-body ">
 										<div class="add-Name-Code">
 											<c:if test="${message != null }">
 												<span style="color: red"><c:out value="${message }"></c:out></span>
 											</c:if>
 											<div class="mb-3">
-												<label for="defaultInput" class="form-label">Name
-													Category</label>
+												<label for="defaultInput" class="form-label">Tên danh mục</label>
 												<form:input path="name" id="defaultInput"
 													cssClass="form-control" type="text"
-													placeholder="Name Here..." />
+													placeholder="Nhập tên vào đây" />
 											</div>
 											<div class="mb-3">
-												<label for="defaultInput" class="form-label">Code
-													Category</label>
+												<label for="defaultInput" class="form-label">Mã danh mục</label>
 												<form:input path="code" id="defaultInput1"
-													class="form-control" type="text" placeholder="Code Here..." />
+													class="form-control" type="text" placeholder="Nhập mã vào đây" />
 											</div>
 										</div>
 										<div class="btn btnArond">
@@ -380,7 +378,7 @@
 												<button type="button" class="btn btn-warning">Clear</button>
 											</a> <a href="#">
 												<button type="submit" class="btn btn-primary">Submit</button>
-											</a> <a href="./CategoryList.Html">
+											</a> <a href="${pageContext.request.contextPath}/admin/listCategory">
 												<button type="button" class="btn btn-danger">Cancel</button>
 											</a>
 										</div>

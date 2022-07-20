@@ -124,37 +124,35 @@
                           </a> -->
 
 							<div class="nav__dropdown">
-								<a href="#" class="nav__link"> <i
-									class='bx bx-closet nav__icon'></i> <span class="nav__name">Product</span>
+								<a  class="nav__link"> <i
+									class='bx bx-closet nav__icon'></i> <span class="nav__name">Quản lý sản phẩm</span>
 
 								</a>
 
 								<div class="nav__dropdown-collapse">
 									<div class="nav__dropdown-content">
-										<a href="/html/ProductList.html" class="nav__dropdown-item">My
-											Products</a> <a href="/html/AddProduct.html"
-											class="nav__dropdown-item">Add New Product</a> <a href="#"
-											class="nav__dropdown-item">Product Banned</a>
+										<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> 
+										<a href="${pageContext.request.contextPath}/shop/addProduct" class="nav__dropdown-item">Thêm sản phẩm</a> 
+										<a href="#" class="nav__dropdown-item">Sản phẩm vi phạm</a> 
 									</div>
 								</div>
 							</div>
 
 							<div class="nav__dropdown">
-								<a href="#" class="nav__link"> <i
-									class='bx bx-task nav__icon'></i> <span class="nav__name">Order</span>
+								<a  class="nav__link"> <i
+									class='bx bx-task nav__icon'></i> <span class="nav__name">Quản lý đơn hàng</span>
 
 								</a>
 
 								<div class="nav__dropdown-collapse">
 									<div class="nav__dropdown-content">
-										<a href="/html/OrderList.html" class="nav__dropdown-item">My
-											Orders</a> <a href="/html/OrderCancelList.html"
-											class="nav__dropdown-item">Cancellation</a>
+										<a href="${pageContext.request.contextPath}/shop/listOrder" class="nav__dropdown-item">Tât cả đơn hàng</a> 
+										<a href="${pageContext.request.contextPath}/shop/listOrderCancel" class="nav__dropdown-item">Đơn hủy</a>
 									</div>
 								</div>
 							</div>
 
-							<a href="/html/DiscountList.html" class="nav__link"> <i
+							<a href="#" class="nav__link"> <i
 								class='bx bxs-discount nav__icon'></i> <span class="nav__name">Discount</span>
 							</a> <a href="#" class="nav__link"> <i
 								class=' bx bxs-bar-chart-square nav__icon'></i> <span
@@ -176,7 +174,7 @@
 							enctype="multipart/form-data">
 							<!-- Header -->
 							<div class="card-header">
-								<h4 class="card-header-title">Product information</h4>
+								<h4 class="card-header-title">Thông tin sản phẩm</h4>
 							</div>
 							<!-- End Header -->
 
@@ -194,7 +192,7 @@
 
 											<form:input type="text" cssClass="form-control"
 												name="productName" id="productNameLabel"
-												placeholder="Shirt, t-shirts, etc."
+												placeholder="Áo, quần..."
 												aria-label="Shirt, t-shirts, etc." path="name" />
 
 										</div>
@@ -237,10 +235,10 @@
 													tính</label>
 												<form:select id="productGender" cssClass="form-select"
 													path="productDetailsEntity.gender">
-													<form:option value="0">Choose Gender</form:option>
-													<form:option value="1">Male</form:option>
-													<form:option value="2">Female</form:option>
-													<form:option value="3">Other</form:option>
+													<form:option value="0">Chọn giới tính</form:option>
+													<form:option value="1">Nam</form:option>
+													<form:option value="2">Nữ</form:option>
+													<form:option value="3">Giới tính khác</form:option>
 												</form:select>
 											</div>
 										</div>
@@ -253,7 +251,7 @@
 										<div class="form-group">
 											<label for="productQuantity" class="input-label">Màu</label>
 											<form:input type="text" cssClass="form-control" name="Color"
-												id="productColor" placeholder="red, blue, green, yellow"
+												id="productColor" placeholder="Đỏ, xanh, tím, vàng..."
 												path="productDetailsEntity.color" />
 										</div>
 										<!-- End Form Group -->
@@ -278,7 +276,7 @@
 											<label for="productMaterial" class="input-label">Chất
 												liệu</label>
 											<form:input type="text" cssClass="form-control"
-												name="Material" id="productMaterial" placeholder="Material"
+												name="Material" id="productMaterial" 
 												aria-label="eg. 348121032"
 												path="productDetailsEntity.material" />
 										</div>
@@ -300,10 +298,10 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="mb-3 form-group">
-											<label for="productSubCategory" class="input-label">Sub-Category</label>
+											<label for="productSubCategory" class="input-label">Danh mục phụ</label>
 											<form:select id="productSubCategory" cssClass="form-select"
 												path="subCategoryEntity.id">
-												<form:option value="0">Choose Sub-Category</form:option>
+												<form:option value="0">Chọn danh mục phụ</form:option>
 												<c:forEach items="${subcategory }" var="item">
 													<form:option value="${item.id }">${item.nameSub }</form:option>
 												</c:forEach>
@@ -466,18 +464,18 @@
 
 									<div class="">
 										<div class="form-group">
-											<label for="productDescription" class="input-label">Description</label>
+											<label for="productDescription" class="input-label">Miêu tả sản phẩm</label>
 											<form:textarea id="productDescription" path="description"></form:textarea>
 										</div>
 									</div>
 
 									<div class="row">
-										<label class="input-label">Product Image</label>
+										<label class="input-label">Ảnh sản phẩm</label>
 										<div class="col-sm-3">
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 1</p> <input type="file"
+														<p>Tải ảnh 1</p> <input type="file"
 														name="multipartFile" class="upload__inputfile">
 													</label>
 												</div>
@@ -488,7 +486,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 2</p> <input type="file"
+														<p>Tải ảnh 2</p> <input type="file"
 														name="multipartFile1" class="upload__inputfile">
 													</label>
 												</div>
@@ -499,7 +497,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 3</p> <input type="file"
+														<p>Tải ảnh 3</p> <input type="file"
 														name="multipartFile2" class="upload__inputfile">
 													</label>
 												</div>
@@ -510,7 +508,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 4</p> <input type="file"
+														<p>Tải ảnh 4</p> <input type="file"
 														name="multipartFile3" class="upload__inputfile">
 													</label>
 												</div>

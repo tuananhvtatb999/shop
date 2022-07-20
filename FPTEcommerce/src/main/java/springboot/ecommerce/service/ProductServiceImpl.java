@@ -187,4 +187,27 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(product);
     }
 
+	@Override
+	public List<ProductEntity> getProductBanned(int id) {
+		// TODO Auto-generated method stub
+		return productRepository.findAllBanned(id);
+	}
+
+	@Override
+	public Page<ProductEntity> getProductByNameOrCodeBanned(String keyword, int page, Integer id) {
+		 if (keyword != null && keyword.length() > 0) {
+	            return (Page<ProductEntity>) productRepository.findAllByNameOrCodeBanned(keyword,
+	                    PageRequest.of(page - 1, pagingNumber), id);
+	        } else {
+	            return (Page<ProductEntity>) productRepository.findAllBanned(PageRequest.of(page - 1, pagingNumber), id);
+
+	        }
+	}
+	
+	@Override
+    public Page<ProductEntity> getProductPagingBanned(int page, Integer id) {
+        // TODO Auto-generated method stub
+        return (Page<ProductEntity>) productRepository.findAllBanned(PageRequest.of(page - 1, pagingNumber), id);
+    }
+
 }

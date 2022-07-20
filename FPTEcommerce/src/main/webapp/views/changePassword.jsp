@@ -157,7 +157,7 @@
 						</a>
 							<ul class="nav-child">
 								<li class="nav-child-item" data-tab-select="user-information">
-									<a class="nav-child-link" href="#"> <span
+									<a class="nav-child-link" href="${pageContext.request.contextPath}/customer/updateProfile"> <span
 										class="menu-child-title">Hồ sơ</span>
 								</a>
 								</li>

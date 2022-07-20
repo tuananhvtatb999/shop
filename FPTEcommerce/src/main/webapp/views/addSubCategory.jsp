@@ -134,7 +134,7 @@
 					<li class="menu-item active"><a href="index.html"
 						class="menu-link"> <i
 							class="menu-icon tf-icons bx bx-home-circle"></i>
-							<div data-i18n="Analytics">Dashboard</div>
+							<div data-i18n="Analytics">Bảng điều khiển</div>
 					</a></li>
 
 					<!-- E-Commerce -->
@@ -143,16 +143,16 @@
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <i
 							class="menu-icon tf-icons bx bx-dock-top"></i>
-							<div data-i18n="Category">Caregory</div>
+							<div data-i18n="Category">Danh mục</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./CategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listCategory"
 								class="menu-link">
-									<div data-i18n="CategoryList">Category List</div>
+									<div data-i18n="CategoryList">Tất cả danh mục</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addCategory"
 								class="menu-link">
-									<div data-i18n="AddCategory">Add Category</div>
+									<div data-i18n="AddCategory">Thêm danh mục</div>
 							</a></li>
 
 						</ul></li>
@@ -162,16 +162,16 @@
 					<li class="menu-item"><a href="javascript:void(0);"
 						class="menu-link menu-toggle"> <!-- <i class="menu-icon tf-icons bx bx-dock-top"></i> -->
 							<i class="menu-icon tf-icons bx bx-copy"></i>
-							<div data-i18n="SubCategory">Sub Caregory</div>
+							<div data-i18n="SubCategory">Danh mục phụ</div>
 					</a>
 						<ul class="menu-sub">
-							<li class="menu-item"><a href="./SubCategoryList.Html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/listSubCategory"
 								class="menu-link">
-									<div data-i18n="SubCategoryList">Sub Category List</div>
+									<div data-i18n="SubCategoryList">Tất cả danh mục phụ</div>
 							</a></li>
-							<li class="menu-item"><a href="./AddSubCategory.html"
+							<li class="menu-item"><a href="${pageContext.request.contextPath}/admin/addSubCategory"
 								class="menu-link">
-									<div data-i18n="AddSubCategory">Add Sub Category</div>
+									<div data-i18n="AddSubCategory">Thêm danh mục phụ</div>
 							</a></li>
 
 						</ul></li>
@@ -345,35 +345,33 @@
 							<div class="card mb-4 ">
 								<form:form action="doAddSubCategory" id="form-addCate"
 									method="post" modelAttribute="subcategory">
-									<h4 class="card-header">Add New Category</h4>
+									<h4 class="card-header">THÊM DANH MỤC</h4>
 									<div class="card-body ">
 										<div class="add-Name-Code">
 											<c:if test="${message != null }">
 												<span style="color: red"><c:out value="${message }"></c:out></span>
 											</c:if>
 											<div class="input-group dropdown-cate">
-												<label class="input-group-text" for="inputGroupSelect01">Category</label>
+												<label class="input-group-text" for="inputGroupSelect01">Danh mục</label>
 												<form:select cssClass="form-select" id="inputGroupSelect01"
 													path="category.id">
-													<form:option value="0">Choose...</form:option>
+													<form:option value="0">Chọn danh mục tại đây...</form:option>
 													<c:forEach items="${category }" var="item">
 														<form:option value="${item.id }">${item.name }</form:option>
 													</c:forEach>
 												</form:select>
 											</div>
 											<div class="mb-3">
-												<label for="defaultInput" class="form-label">Name
-													Sub-Category</label>
+												<label for="defaultInput" class="form-label">Tên danh mục phụ</label>
 												<form:input path="nameSub" id="nameSub"
 													cssClass="form-control" type="text"
-													placeholder="Name Here..." />
+													placeholder="Nhập tên..." />
 											</div>
 											<div class="mb-3">
-												<label for="defaultInput" class="form-label">Code
-													Sub-Category</label>
+												<label for="defaultInput" class="form-label">Mã danh mục phụ</label>
 												<form:input path="codeSub" id="codeSub"
 													cssClass="form-control" type="text"
-													placeholder="Code Here..." />
+													placeholder="Nhập mã..." />
 											</div>
 										</div>
 										<div class="btn btnArond">

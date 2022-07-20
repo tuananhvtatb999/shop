@@ -28,6 +28,26 @@ public class TestViewController {
 //	public String detail2() {
 //		return "listProduct";
 //	}
-	
+	//------ test View-------
+	@GetMapping({"/emptyCart"})
+	public String emptycart() {
+		return "emptyCart";
+	}
+	@GetMapping({"/shopProfile"})
+	public String shop1() {
+		return "shop";
+	}
+	@GetMapping({"/listOrder"})
+	public String listOrder() {
+		return "listOrder";
+	}
+	@GetMapping({"/orderDetail"})
+	public String orderDetail() {
+		return "orderDetail";
+	}
+	@GetMapping({"/listOrderCancel"})
+	public String listOrderCancel() {
+		return "listOrderCancel";
+	}
 
 }

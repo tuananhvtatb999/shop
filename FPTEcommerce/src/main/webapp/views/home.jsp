@@ -1447,9 +1447,9 @@
 												<img src="${item.pathImage }" alt="" />
 											</div>
 											<div class="card-text">
-												<h3 class="card-title">
+												<a href="${pageContext.request.contextPath}/shop?id=${item.shopEntity.id}"><h3 class="card-title">
 													<c:out value="${item.shopEntity.name }" />
-												</h3>
+												</h3></a>
 												<%--<p class="card-des truncate">${item.description }</p> --%>
 												<p class="card-des truncate"
 													href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">
@@ -1596,7 +1596,7 @@
 												<img src="${item.pathImage }" alt="" />
 											</div>
 											<div class="card-text">
-												<a href="${pageContext.request.contextPath}/shop?id=${item.id}"><h3 class="card-title">
+												<a href="${pageContext.request.contextPath}/shop?id=${item.shopEntity.id}"><h3 class="card-title">
 													<c:out value="${item.shopEntity.name }" />
 												</h3></a>
 												<%--<p class="card-des truncate">${item.description }</p> --%>
@@ -1664,9 +1664,9 @@
 												<img src="${item.pathImage }" alt="" />
 											</div>
 											<div class="card-text">
-												<h3 class="card-title">
+												<a href="${pageContext.request.contextPath}/shop?id=${item.shopEntity.id}"><h3 class="card-title">
 													<c:out value="${item.shopEntity.name }" />
-												</h3>
+												</h3></a>
 												<%--<p class="card-des truncate">${item.description }</p> --%>
 												<p class="card-des truncate"
 													href="${pageContext.request.contextPath}/detailProduct?id=${item.id}">

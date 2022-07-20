@@ -95,7 +95,7 @@
 				<div class="header-bottom">
 					<!-- Header-left -->
 					<ul class="header-bottom-left">
-						<li class="header-bottom-logo"><a href="#"> <img
+						<li class="header-bottom-logo"><a href="${pageContext.request.contextPath}/home"> <img
 								src="./assets/img/logo.svg" alt="logo" />
 						</a></li>
 						<li class="header-bottom-item"><a href="#"> <span

@@ -114,32 +114,33 @@
                               </a> -->
 
 						<div class="nav__dropdown">
-							<a href="#" class="nav__link"> <i
-								class='bx bx-closet nav__icon'></i> <span class="nav__name">Product</span>
+							<a  class="nav__link"> <i
+								class='bx bx-closet nav__icon'></i> <span class="nav__name">Quản lý sản phẩm</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="/html/ProductList.html" class="nav__dropdown-item">My
-										Products</a> <a href="/html/AddProduct.html"
-										class="nav__dropdown-item">Add New Product</a> <a href="#"
-										class="nav__dropdown-item">Product Banned</a>
+									<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> 
+									<a href="${pageContext.request.contextPath}/shop/addProduct"
+										class="nav__dropdown-item">Thêm sản phẩm</a> 
+									<a href="#"
+										class="nav__dropdown-item">Sản phẩm vi phạm</a>
 								</div>
 							</div>
 						</div>
 
 						<div class="nav__dropdown">
-							<a href="#" class="nav__link"> <i
-								class='bx bx-task nav__icon'></i> <span class="nav__name">Order</span>
+							<a class="nav__link"> <i
+								class='bx bx-task nav__icon'></i> <span class="nav__name">Quản lý đơn hàng</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="/html/OrderList.html" class="nav__dropdown-item">My
-										Orders</a> <a href="/html/OrderCancelList.html"
-										class="nav__dropdown-item">Cancellation</a>
+									<a href="${pageContext.request.contextPath}/shop/listOrder" class="nav__dropdown-item">Tất cả đơn hàng</a>
+									<a href="#"
+										class="nav__dropdown-item">Đơn hàng vi phạm</a>
 								</div>
 							</div>
 						</div>
@@ -168,7 +169,7 @@
           <div class="row">
              <div class="col-md-8">
               <div class="input-group input-group-merge">
-                <input type="text" class="form-control" placeholder="    Search..." aria-label="     Search..."
+                <input type="text" class="form-control" placeholder="    Tìm kiếm..." aria-label="     Search..."
                   aria-describedby="basic-addon-search31" />
                 <span class="input-group-text" id="basic-addon-search"><i class="bx bx-search"></i></span>
               </div>
@@ -177,7 +178,7 @@
               <div class="btn btnArond">
                 <a>
                   <button type="button" class="button btn primary">
-                    <span>Search</span>
+                    <span>Tìm kiếm</span>
                   </button>
                 </a>
                 <a onclick="clearForm()">
@@ -194,21 +195,21 @@
               <div class="card mb-4 ">
                 <form class="" action="">
                   <div class="header-table">
-                    <h4 class="card-header">Order List</h4>
+                    <h4 class="card-header">Danh sách đặt hàng</h4>
                   </div>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
                       <thead class="table-light">
                         <tr>
                           <th>STT</th>
-                          <th>Order Id</th>
+                          <th>ID đơn hàng</th>
                           <th>Sản Phẩm</th>
                           <th>Mã Sản Phẩm</th>
                           <th>Tổng cộng</th>
                           <th>Số Lượng</th>
                           <th>Ngày Tạo</th>
-                          <th>Status</th>
-                          <th>Actions</th>
+                          <th>Trạng thái</th>
+                          <th>Thao tác</th>
                         </tr>
                       </thead>
                       <tbody class="table-border-bottom-0">
@@ -233,7 +234,7 @@
                               </button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item" href="./OrderDetails.html"><i class="fa-solid fa-eye me-1"></i>
-                                  View</a>                               
+                                  Xem</a>                               
                               </div>
                             </div>
                           </td>

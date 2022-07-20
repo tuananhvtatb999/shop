@@ -57,7 +57,7 @@
             <!-- Header-left -->
             <ul class="header-bottom-left">
                 <li class="header-bottom-logo">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/home">
                         <img src="/assets/img/logo.svg" alt="logo"/>
                     </a>
                 </li>
@@ -101,7 +101,7 @@
 
         <!-- ------------------------ Begin BREADCRUMB ------------------------------- -->
         <div class="header__menu">
-            <a href="/" class="header__prev"><i class="fas fa-angle-left"></i><span class="menu__text--back">Quay
+            <a class="header__prev"><i class="fas fa-angle-left"></i><span class="menu__text--back">Quay
             lại</span></a>
             <ul class="menu">
                 <li class="menu__sub active" onclick="activeTab(0)">
