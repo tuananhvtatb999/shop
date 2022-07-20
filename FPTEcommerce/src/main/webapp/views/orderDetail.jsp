@@ -186,7 +186,7 @@
                       </div>
                       <span>
                         <lable class="h5">ID: </lable>
-                        <i class="h5" href="">#SE1406</i>
+                        <i class="h5" href="">${orders.orderEntity.id}</i>
                       </span>
                     </div>
                     <!-- End Header -->
@@ -196,38 +196,38 @@
                       <!-- Media -->
                       <div class="media">
                         <div class="avatar avatar-xl mr-3">
-                          <img class="img-fluid" src="../assets/img/product/card1.webp" alt="Image Description">
+                          <img class="img-fluid" src="${orders.productEntity.pathImage}" alt="Image Description">
                         </div>
 
                         <div class="media-body">
                           <div class="row">
                             <div class="col-md-6 mb-3 mb-md-0">
-                              <a class="h6 d-block" href="ecommerce-product-details.html">Topman shoe in green</a>
-
+                              <a class="h6 d-block" href="${pageContext.request.contextPath}/detailProduct?id=${orders.productEntity.id}">
+                                  ${orders.productEntity.name}</a>
                               <div class="font-size-sm text-body">
                                 <span>Gender:</span>
-                                <span class="font-weight-bold">Women</span>
+                                <span class="font-weight-bold">${orders.productEntity.productDetailsEntity.gender}</span>
                               </div>
                               <div class="font-size-sm text-body">
                                 <span>Color:</span>
-                                <span class="font-weight-bold">Green</span>
+                                <span class="font-weight-bold">${orders.productEntity.productDetailsEntity.color}</span>
                               </div>
                               <div class="font-size-sm text-body">
                                 <span>Size:</span>
-                                <span class="font-weight-bold">UK 7</span>
+                                <span class="font-weight-bold">${orders.productEntity.productDetailsEntity.size}</span>
                               </div>
                             </div>
 
                             <div class="col col-md-2 align-self-center">
-                              <h6>$21.00</h6>
+                              <h6>${orders.productEntity.unitPrice}</h6>
                             </div>
 
                             <div class="col col-md-2 align-self-center">
-                              <h6>2</h6>
+                              <h6>${orders.quantity}</h6>
                             </div>
 
                             <div class="col col-md-2 align-self-center text-right">
-                              <h6>$42.00</h6>
+                              <h6>${orders.totalPrice}</h6>
                             </div>
                           </div>
                         </div>
@@ -236,97 +236,19 @@
 
                       <hr>
 
-                      <!-- Media -->
-                      <div class="media">
-                        <div class="avatar avatar-xl mr-3">
-                          <img class="img-fluid" src="../assets/img/product/card3.jpeg" alt="Image Description">
-                        </div>
 
-                        <div class="media-body">
-                          <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                              <a class="h6 d-block" href="ecommerce-product-details.html">Office Notebook</a>
-
-                              <div class="font-size-sm text-body">
-                                <span>Color:</span>
-                                <span class="font-weight-bold">Gray</span>
-                              </div>
-                            </div>
-
-                            <div class="col col-md-2 align-self-center">
-                              <h6>$9</h6>
-                            </div>
-
-                            <div class="col col-md-2 align-self-center">
-                              <h6>1</h6>
-                            </div>
-
-                            <div class="col col-md-2 align-self-center text-right">
-                              <h6>$9.00</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End Media -->
-
-                      <hr>
-
-                      <!-- Media -->
-                      <div class="media">
-                        <div class="avatar avatar-xl mr-3">
-                          <img class="img-fluid" src="../assets/img/product/card2.webp" alt="Image Description">
-                        </div>
-
-                        <div class="media-body">
-                          <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                              <a class="h6 d-block" href="ecommerce-product-details.html">RayBan sunglasses</a>
-
-                              <div class="font-size-sm text-body">
-                                <span>Gender:</span>
-                                <span class="font-weight-bold">Unisex</span>
-                              </div>
-                              <div class="font-size-sm text-body">
-                                <span>Color:</span>
-                                <span class="font-weight-bold">Black</span>
-                              </div>
-                              <div class="font-size-sm text-body">
-                                <span>Size:</span>
-                                <span class="font-weight-bold">One size</span>
-                              </div>
-                            </div>
-
-                            <div class="col col-md-2 align-self-center">
-                              <h6>$14.00</h6>
-                            </div>
-
-                            <div class="col col-md-2 align-self-center">
-                              <h6>1</h6>
-                            </div>
-
-                            <div class="col col-md-2 align-self-center text-right">
-                              <h6>$14.00</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End Media -->
-
-                      <hr>
 
                       <div class="row justify-content-md-end mb-3">
                         <div class="col-md-8 col-lg-7">
                           <dl class="row text-sm-right">
                             <dt class="col-sm-6">Product Price:</dt>
-                            <dd class="col-sm-6">$65.00</dd>
+                            <dd class="col-sm-6">${orders.productEntity.promotionPrice}</dd>
                             <dt class="col-sm-6">Shipping fee:</dt>
-                            <dd class="col-sm-6">$5.00</dd>
-                            <dt class="col-sm-6">Tax:</dt>
-                            <dd class="col-sm-6">$7.00</dd>
+                            <dd class="col-sm-6">30.000</dd>
                             <dt class="col-sm-6">Discord:</dt>
-                            <dd class="col-sm-6">$10.00</dd>
+                            <dd class="col-sm-6">${orders.productEntity.discountEntity.percentz}</dd>
                             <dt class="col-sm-6 h5">Total:</dt>
-                            <dd class="col-sm-6 h5">$67.00</dd>
+                            <dd class="col-sm-6 h5">${orders.totalDiscountPrice}</dd>
                           </dl>
                           <!-- End Row -->
                         </div>
@@ -351,11 +273,11 @@
                     <div class="card-body">
                       <a class="media customer-avatar align-items-center" href="#">
                         <div class="avatar avatar-circle mr-3">
-                          <img class="avatar-img" style="border-radius: 50%;" src="../assets/img/avatars/6.png"
+                          <img class="avatar-img" style="border-radius: 50%;" src="${user.path}"
                             alt="Image Description">
                         </div>
                         <div class="media-body">
-                          <span class="text-body customer-name text-hover-primary">Amanda Harvey</span>
+                          <span class="text-body customer-name text-hover-primary">${user.username}</span>
                         </div>
 
                       </a>
@@ -369,11 +291,11 @@
                       <ul class="list-unstyled list-unstyled-py-2">
                         <li>
                           <i class="tio-online mr-2"></i>
-                          Trongldde140257@fpt.edu.vn
+                            ${user.email}
                         </li>
                         <li>
                           <i class="tio-android-phone-vs mr-2"></i>
-                          +(84) 933 932 571
+                            ${user.phoneNumber}
                         </li>
                       </ul>
 
@@ -385,9 +307,7 @@
                       </div>
 
                       <span class="d-block" style="padding-bottom: 15px;">
-                        45 Roker Terrace<br>
-                        Latheronwheel<br>
-                        KW5 8NW, London<br>
+                          ${user.address}
                       </span>
                       <!-- <hr>
                          <div class="mt-3">

@@ -46,18 +46,14 @@ public class SecurityWebAppConfig extends WebSecurityConfigurerAdapter {
 				// .csrf().disable() de~ ko bi loi~ method not allowed
 				.csrf().disable().authorizeRequests()
 				// khai báo đường dẫn của request
-				.antMatchers("/*")
-				// cho phép tất cả các user đều được phép truy cập
-				.permitAll()
-				// khai báo đường dẫn của request
 				.antMatchers("/customer/**")
 				// chỉ cho phép các user có GrantedAuthority là MEMBER mới được phép truy cập
 				//.hasAnyRole(new String[] {"CUSTOMER","SHOP"})
 				.hasAnyRole("CUSTOMER")
-				.antMatchers("/shop/*")
+				.antMatchers("/shop/**")
 				.hasAnyRole("SHOP")
 				// khai báo đường dẫn của request
-				.antMatchers("/admin/*")
+				.antMatchers("/admin/**")
 				// chỉ cho phép các user có GrantedAuthority là ADMIN mới được phép truy cập
 				.hasRole("ADMIN").and().formLogin()
 				// đường dẫn tới trang chứa form đăng nhập

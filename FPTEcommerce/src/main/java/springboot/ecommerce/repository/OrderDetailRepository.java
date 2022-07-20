@@ -10,4 +10,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, 
 
     @Query("Select d from OrderDetailEntity d where d.orderEntity.id= ?1 and d.status = ?2")
     List<OrderDetailEntity> getByOrderIdAndStatus(Integer id, Integer status);
+
+    @Query("Select d from OrderDetailEntity d where d.productEntity.shopEntity.id= ?1")
+    List<OrderDetailEntity> getByShopId(Integer id);
 }
