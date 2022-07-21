@@ -46,7 +46,7 @@
 
 </head>
 <header class="header-wrapper">
-<div class="preloader">
+	<div class="preloader">
 		<div class="preloader-inner">
 			<div class="preloader-icon">
 				<span></span> <span></span>
@@ -66,7 +66,8 @@
 
 
 				</div>
-				<li class="header-bottom-logo"><a href="${pageContext.request.contextPath}/home"> <img
+				<li class="header-bottom-logo"><a
+					href="${pageContext.request.contextPath}/home"> <img
 						src="${pageContext.request.contextPath}/newimage/logo.svg"
 						alt="logo" />
 				</a></li>
@@ -74,21 +75,52 @@
 			<!-- end Header-left -->
 			<!-- Header-right -->
 			<ul class="header-bottom-right">
-				<li class="header-bottom-right-item"><a href="#"> <i
-						class="far fa-bell"></i>
-				</a></li>
-				<li class="header-bottom-right-item"><a href="#"> <i
-						class="fas fa-shopping-bag"></i>
-				</a></li>
-				<li class="header-bottom-right-items user">
+				<li class="header-bottom-right-items">
 					<div class="header-bottom-right-item">
-						<a href="#"> <i class="far fa-user"></i>
+						<a href="#"> <i class="far fa-bell"></i>
 						</a>
 					</div>
-					<div class="user-right">
-						<a class="about-user" href="#"> <span class="about-user-1">Tài
-								khoản</span> <span class="about-user-2">Xin chào!</span>
-						</a> <i class="fas fa-caret-down"></i>
+				</li>
+				<li class="header-bottom-right-items">
+					<div class="header-bottom-right-item">
+						<a href="${pageContext.request.contextPath}/cart"> <i
+							class="fas fa-shopping-bag"><span class="badge"
+								id="quantity-product-in-cart"></span></i>
+						</a>
+					</div>
+				</li>
+				<li class="header-bottom-right-items user action ">
+					<div class="profile" onclick="menuToggle();">
+						<div class="header-bottom-right-item">
+							<a href="#"> <i class="far fa-user"></i>
+							</a>
+						</div>
+						<div class="profile-right">
+
+							<a class="about-user" href="#"> <span class="about-user-1"></span>
+								<span class="about-user-2">Xin chào!</span> <span
+								class="about-user-1"><c:out
+										value="${sessionScope.email }"></c:out></span>
+							</a>
+						</div>
+					</div>
+					<div class="menu">
+						<ul>
+							<c:choose>
+								<c:when test="${sessionScope.email == null}">
+									<li><a href="login">Đăng Nhập</a></li>
+									<li class="border-top"><a href="register">Đăng Ký</a></li>
+								</c:when>
+								<c:when test="${sessionScope.email != null}">
+									<li><a
+										href="${pageContext.request.contextPath}/customer/updateProfile">
+											Thông tin </a></li>
+									<li><a href="logout"> Đăng xuất </a></li>
+
+								</c:when>
+
+							</c:choose>
+						</ul>
 					</div>
 				</li>
 			</ul>
@@ -114,32 +146,32 @@
                               </a> -->
 
 						<div class="nav__dropdown">
-							<a  class="nav__link"> <i
-								class='bx bx-closet nav__icon'></i> <span class="nav__name">Quản lý sản phẩm</span>
+							<a class="nav__link"> <i class='bx bx-closet nav__icon'></i>
+								<span class="nav__name">Quản lý sản phẩm</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> 
-									<a href="${pageContext.request.contextPath}/shop/addProduct"
-										class="nav__dropdown-item">Thêm sản phẩm</a> 
-										<a href="#"
+									<a href="${pageContext.request.contextPath}/shop/listProduct"
+										class="nav__dropdown-item">Tất cả sản phẩm</a> <a
+										href="${pageContext.request.contextPath}/shop/addProduct"
+										class="nav__dropdown-item">Thêm sản phẩm</a> <a href="#"
 										class="nav__dropdown-item">Sản phẩm vi phạm</a>
 								</div>
 							</div>
 						</div>
 
 						<div class="nav__dropdown">
-							<a  class="nav__link"> <i
-								class='bx bx-task nav__icon'></i> <span class="nav__name">Quản lý đặt hàng</span>
+							<a class="nav__link"> <i class='bx bx-task nav__icon'></i> <span
+								class="nav__name">Quản lý đặt hàng</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="${pageContext.request.contextPath}/shop/listOrder" class="nav__dropdown-item">Tất cả đơn hàng </a> 
-									<a href="#"
+									<a href="${pageContext.request.contextPath}/shop/listOrder"
+										class="nav__dropdown-item">Tất cả đơn hàng </a> <a href="#"
 										class="nav__dropdown-item">Đơn hàng hủy</a>
 								</div>
 							</div>
@@ -159,152 +191,153 @@
 </aside>
 <body>
 
-	 <div class="">
-    <!-- Content wrapper -->
-    <div class="content-wrapper">
-      <!-- Content -->
-      <div class="flex-grow-1">
+	<div class="">
+		<!-- Content wrapper -->
+		<div class="content-wrapper">
+			<!-- Content -->
+			<div class="flex-grow-1">
 
-        <div class="card mb-4 ">
-          <div class="row">
-             <div class="col-md-8">
-              <div class="input-group input-group-merge">
-                <input type="text" class="form-control" placeholder="    Search..." aria-label="     Search..."
-                  aria-describedby="basic-addon-search31" />
-                <span class="input-group-text" id="basic-addon-search"><i class="bx bx-search"></i></span>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="btn btnArond">
-                <a>
-                  <button type="button" class="button btn primary">
-                    <span>Search</span>
-                  </button>
-                </a>
-                <a onclick="clearForm()">
-                  <button type="button" class="btn btn-outline-secondary">Export</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+				<div class="card mb-4 ">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="input-group input-group-merge">
+								<input type="text" class="form-control"
+									placeholder="    Search..." aria-label="     Search..."
+									aria-describedby="basic-addon-search31" /> <span
+									class="input-group-text" id="basic-addon-search"><i
+									class="bx bx-search"></i></span>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="btn btnArond">
+								<a>
+									<button type="button" class="button btn primary">
+										<span>Search</span>
+									</button>
+								</a> <a onclick="clearForm()">
+									<button type="button" class="btn btn-outline-secondary">Export</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div class="row ">
-          <div class="col-sm-12 center-block col-xxl">
-            <div class="">
-              <div class="card mb-4 ">
-                <form class="" action="">
-                  <div class="header-table">
-                    <h4 class="card-header">Đơn Hủy</h4>
-                  </div>
-                  <div class="table-responsive text-nowrap">
-                    <table class="table table-hover">
-                      <thead class="table-light">
-                        <tr>
-                          <th>STT</th>
-                          <th>ID Đơn hàng</th>
-                          <th>Sản Phẩm</th>
-                          <th>Mã Sản Phẩm</th>
-                          <th>Tổng cộng</th>
-                          <th>Số Lượng</th>
-                          <th>Ngày Tạo</th>
-                          <th>Trạng thái</th>
-                          <th>Thao tác</th>
-                        </tr>
-                      </thead>
-                      <tbody class="table-border-bottom-0">
-                        <tr>
-                          <td>1</td>
-                          <td>#SE1405</td>
-                          <td>áo thun vàng </td>
-                          <!-- <td>ảnh </td> -->
-                          <td>1111</td>
-                          <td>1111$</td>
-                          <td> 0 có</td>
-                          <td>gucci</td>
-                          <td>
-                              <lable class="badge bg-label-danger">Reject</lable>
-                          </td>
+				<div class="row ">
+					<div class="col-sm-12 center-block col-xxl">
+						<div class="">
+							<div class="card mb-4 ">
+								<form class="" action="">
+									<div class="header-table">
+										<h4 class="card-header">Đơn Hủy</h4>
+									</div>
+									<div class="table-responsive text-nowrap">
+										<table class="table table-hover">
+											<thead class="table-light">
+												<tr>
+													<th>STT</th>
+													<th>ID Đơn hàng</th>
+													<th>Sản Phẩm</th>
+													<th>Mã Sản Phẩm</th>
+													<th>Tổng cộng</th>
+													<th>Số Lượng</th>
+													<th>Ngày Tạo</th>
+													<th>Trạng thái</th>
+													<th>Thao tác</th>
+												</tr>
+											</thead>
+											<tbody class="table-border-bottom-0">
+												<tr>
+													<td>1</td>
+													<td>#SE1405</td>
+													<td>áo thun vàng</td>
+													<!-- <td>ảnh </td> -->
+													<td>1111</td>
+													<td>1111$</td>
+													<td>0 có</td>
+													<td>gucci</td>
+													<td><lable class="badge bg-label-danger">Reject</lable>
+													</td>
 
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="./OrderDetails.html"><i class="fa-solid fa-eye me-1"></i>
-                                  Xem</a>                               
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>#SE1405</td>
-                          <td>áo thun vàng </td>
-                          <!-- <td>ảnh </td> -->
-                          <td>1111</td>
-                          <td>1111$</td>
-                          <td> 0 có</td>
-                          <td>gucci</td>
-                          <td>
-                            <lable class="badge bg-label-danger">Reject</lable>
-                          </td>
+													<td>
+														<div class="dropdown">
+															<button type="button"
+																class="btn p-0 dropdown-toggle hide-arrow"
+																data-bs-toggle="dropdown">
+																<i class="bx bx-dots-vertical-rounded"></i>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="./OrderDetails.html"><i
+																	class="fa-solid fa-eye me-1"></i> Xem</a>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>#SE1405</td>
+													<td>áo thun vàng</td>
+													<!-- <td>ảnh </td> -->
+													<td>1111</td>
+													<td>1111$</td>
+													<td>0 có</td>
+													<td>gucci</td>
+													<td><lable class="badge bg-label-danger">Reject</lable>
+													</td>
 
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="./OrderDetails.html"><i class="fa-solid fa-eye me-1"></i>
-                                  View</a>
-                                
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>#SE1405</td>
-                          <td>áo thun vàng </td>
-                          <!-- <td>ảnh </td> -->
-                          <td>1111</td>
-                          <td>1111$</td>
-                          <td> 0 có</td>
-                          <td>gucci</td>
-                          <td>
-                               <lable class="badge bg-label-danger">Reject</lable>
-                          </td>
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="./OrderDetails.html"><i class="fa-solid fa-eye me-1"></i>
-                                  View</a>
-                               
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
+													<td>
+														<div class="dropdown">
+															<button type="button"
+																class="btn p-0 dropdown-toggle hide-arrow"
+																data-bs-toggle="dropdown">
+																<i class="bx bx-dots-vertical-rounded"></i>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="./OrderDetails.html"><i
+																	class="fa-solid fa-eye me-1"></i> View</a>
 
-                      </tbody>
-                    </table>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- / Content -->
-  </div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>#SE1405</td>
+													<td>áo thun vàng</td>
+													<!-- <td>ảnh </td> -->
+													<td>1111</td>
+													<td>1111$</td>
+													<td>0 có</td>
+													<td>gucci</td>
+													<td><lable class="badge bg-label-danger">Reject</lable>
+													</td>
+													<td>
+														<div class="dropdown">
+															<button type="button"
+																class="btn p-0 dropdown-toggle hide-arrow"
+																data-bs-toggle="dropdown">
+																<i class="bx bx-dots-vertical-rounded"></i>
+															</button>
+															<div class="dropdown-menu">
+																<a class="dropdown-item" href="./OrderDetails.html"><i
+																	class="fa-solid fa-eye me-1"></i> View</a>
+
+															</div>
+														</div>
+													</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / Content -->
+	</div>
 
 	<!-- / Content -->
 	</div>
@@ -319,8 +352,8 @@
 
 	<script
 		src="${pageContext.request.contextPath}/newjs/perfect-scrollbar.js"></script>
-  <!-- Vendors JS -->
-  <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+	<!-- Vendors JS -->
+	<script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 	<!-- ============= Clear Button ============== -->
 	<script>
 		function clearForm() {
@@ -340,6 +373,7 @@
 	<script src="${pageContext.request.contextPath}/js1/nicesellect.js"></script>
 	<!-- Active JS -->
 	<script src="${pageContext.request.contextPath}/js1/active.js"></script>
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 
 </html>

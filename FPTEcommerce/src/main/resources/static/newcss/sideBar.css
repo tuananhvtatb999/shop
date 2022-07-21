@@ -190,7 +190,7 @@ img {
 .nav__dropdown-content {
   display: grid;
   row-gap: 1rem;
-  padding: .75rem 2.5rem .75rem 1.8rem;
+  padding: .75rem 1.8rem .75rem 1.8rem;
 }
 
 .nav__dropdown-item {

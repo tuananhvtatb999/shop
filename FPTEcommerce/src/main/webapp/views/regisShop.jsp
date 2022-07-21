@@ -50,12 +50,12 @@
 	src="${pageContext.request.contextPath}/newjs/importPage.js"></script>
 </head>
 <div class="preloader">
-		<div class="preloader-inner">
-			<div class="preloader-icon">
-				<span></span> <span></span>
-			</div>
+	<div class="preloader-inner">
+		<div class="preloader-icon">
+			<span></span> <span></span>
 		</div>
 	</div>
+</div>
 <body>
 	<header>
 		<div class="header fixed-header">
@@ -64,23 +64,60 @@
 
 				<!-- Header-left -->
 				<ul class="header-bottom-left">
-					<li class="header-bottom-logo"><a href="#"> <img
+					<li class="header-bottom-logo"><a
+						href="${pageContext.request.contextPath}/home"> <img
 							src="/assets/img/logo.svg" alt="logo" />
 					</a></li>
 				</ul>
 				<!-- end Header-left -->
 				<!-- Header-right -->
 				<ul class="header-bottom-right">
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="far fa-bell"></i>
-					</a></li>
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="fas fa-shopping-bag"></i>
-					</a></li>
-					<li class="header-bottom-right-items user">
+					<li class="header-bottom-right-items">
 						<div class="header-bottom-right-item">
-							<a href="#"> <i class="far fa-user"></i>
+							<a href="#"> <i class="far fa-bell"></i>
 							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items">
+						<div class="header-bottom-right-item">
+							<a href="${pageContext.request.contextPath}/cart"> <i
+								class="fas fa-shopping-bag"><span class="badge"
+									id="quantity-product-in-cart"></span></i>
+							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items user action ">
+						<div class="profile" onclick="menuToggle();">
+							<div class="header-bottom-right-item">
+								<a href="#"> <i class="far fa-user"></i>
+								</a>
+							</div>
+							<div class="profile-right">
+
+								<a class="about-user" href="#"> <span class="about-user-1"></span>
+									<span class="about-user-2">Xin chào!</span> <span
+									class="about-user-1"><c:out
+											value="${sessionScope.email }"></c:out></span>
+								</a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<c:choose>
+									<c:when test="${sessionScope.email == null}">
+										<li><a href="login">Đăng Nhập</a></li>
+										<li class="border-top"><a href="register">Đăng Ký</a></li>
+									</c:when>
+									<c:when test="${sessionScope.email != null}">
+										<li><a
+											href="${pageContext.request.contextPath}/customer/updateProfile">
+												Thông tin </a></li>
+										<li><a href="logout"> Đăng xuất </a></li>
+
+									</c:when>
+
+								</c:choose>
+							</ul>
 						</div>
 					</li>
 				</ul>
@@ -88,7 +125,7 @@
 			</div>
 		</div>
 	</header>
-<%-- 	<h1>
+	<%-- 	<h1>
 		<c:out value="${sessionScope.id }"></c:out>
 	</h1>
 	<h1>
@@ -151,17 +188,19 @@
 					<div class="circle2"></div>
 					<div class="form">
 						<h3>WELCOME TO FPT E-Commerce</h3>
-						<h1><c:out value="${sessionScope.emailShop }"></c:out></h1>
+						<h1>
+							<c:out value="${sessionScope.emailShop }"></c:out>
+						</h1>
 						<form:form id="frm_contact"
 							action="${pageContext.request.contextPath}/customer/doRegisterShop"
 							class="cm-processed-form" method="post" modelAttribute="shop">
-<%-- 							<div class="form-group">
+							<%-- 							<div class="form-group">
 								<label class="cm-email cm-required" for="email">Địa chỉ
 									Email</label>
 								<form:input id="email" path="email" name="email" type="text" />
 								<div class="error"></div>
 							</div> --%>
-							
+
 							<div class="form-group">
 								<label class="cm-phone cm-required" for="phone">Số điện
 									thoại</label>
@@ -225,13 +264,13 @@
 	<script src="${pageContext.request.contextPath}/js1/nicesellect.js"></script>
 	<!-- Active JS -->
 	<script src="${pageContext.request.contextPath}/js1/active.js"></script>
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 
 
 
 
 
 
-	
 
 </body>
 <!-- ----------------- Begin FOOTER---------------------- -->

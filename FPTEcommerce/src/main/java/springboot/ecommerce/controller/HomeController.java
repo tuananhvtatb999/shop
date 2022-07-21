@@ -46,7 +46,8 @@ public class HomeController {
 	@GetMapping({"/","/home"})
 	public String home1(Model model,Principal principal,HttpSession session) {
 		if (principal != null && principal.getName() != null && !"".equals(principal.getName())) {
-			session.setAttribute("email", principal.getName());			
+			session.setAttribute("email", principal.getName());	
+	
 		}
 		String emailShop = (String) session.getAttribute("email");
 		if(emailShop != null && !"".equals(emailShop)) {
@@ -88,7 +89,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping({"/shop"})
+	@GetMapping({"/shop-detail"})
 	public String shop(Model model, @RequestParam(name = "id") Integer id) {
 		ShopEntity shop = shopService.findById(id);
 		model.addAttribute("shop", shop);
