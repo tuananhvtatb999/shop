@@ -46,7 +46,7 @@
 
 </head>
 <header class="header-wrapper">
-<div class="preloader">
+	<div class="preloader">
 		<div class="preloader-inner">
 			<div class="preloader-icon">
 				<span></span> <span></span>
@@ -66,7 +66,8 @@
 
 
 				</div>
-				<li class="header-bottom-logo"><a href="#"> <img
+				<li class="header-bottom-logo"><a
+					href="${pageContext.request.contextPath}/home"> <img
 						src="${pageContext.request.contextPath}/newimage/logo.svg"
 						alt="logo" />
 				</a></li>
@@ -74,21 +75,52 @@
 			<!-- end Header-left -->
 			<!-- Header-right -->
 			<ul class="header-bottom-right">
-				<li class="header-bottom-right-item"><a href="#"> <i
-						class="far fa-bell"></i>
-				</a></li>
-				<li class="header-bottom-right-item"><a href="#"> <i
-						class="fas fa-shopping-bag"></i>
-				</a></li>
-				<li class="header-bottom-right-items user">
+				<li class="header-bottom-right-items">
 					<div class="header-bottom-right-item">
-						<a href="#"> <i class="far fa-user"></i>
+						<a href="#"> <i class="far fa-bell"></i>
 						</a>
 					</div>
-					<div class="user-right">
-						<a class="about-user" href="#"> <span class="about-user-1">Tài
-								khoản</span> <span class="about-user-2">Xin chào!</span>
-						</a> <i class="fas fa-caret-down"></i>
+				</li>
+				<li class="header-bottom-right-items">
+					<div class="header-bottom-right-item">
+						<a href="${pageContext.request.contextPath}/cart"> <i
+							class="fas fa-shopping-bag"><span class="badge"
+								id="quantity-product-in-cart"></span></i>
+						</a>
+					</div>
+				</li>
+				<li class="header-bottom-right-items user action ">
+					<div class="profile" onclick="menuToggle();">
+						<div class="header-bottom-right-item">
+							<a href="#"> <i class="far fa-user"></i>
+							</a>
+						</div>
+						<div class="profile-right">
+
+							<a class="about-user" href="#"> <span class="about-user-1"></span>
+								<span class="about-user-2">Xin chào!</span> <span
+								class="about-user-1"><c:out
+										value="${sessionScope.email }"></c:out></span>
+							</a>
+						</div>
+					</div>
+					<div class="menu">
+						<ul>
+							<c:choose>
+								<c:when test="${sessionScope.email == null}">
+									<li><a href="login">Đăng Nhập</a></li>
+									<li class="border-top"><a href="register">Đăng Ký</a></li>
+								</c:when>
+								<c:when test="${sessionScope.email != null}">
+									<li><a
+										href="${pageContext.request.contextPath}/customer/updateProfile">
+											Thông tin </a></li>
+									<li><a href="logout"> Đăng xuất </a></li>
+
+								</c:when>
+
+							</c:choose>
+						</ul>
 					</div>
 				</li>
 			</ul>
@@ -114,15 +146,18 @@
                               </a> -->
 
 						<div class="nav__dropdown">
-							<a  class="nav__link"> <i
-								class='bx bx-closet nav__icon'></i> <span class="nav__name">Quản lý sản phẩm</span>
+							<a class="nav__link"> <i class='bx bx-closet nav__icon'></i>
+								<span class="nav__name">Quản lý sản phẩm</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> <a href="${pageContext.request.contextPath}/shop/addProduct"
-										class="nav__dropdown-item">Thêm sản phẩm</a> <a href="${pageContext.request.contextPath}/shop/addProduct"
+									<a href="${pageContext.request.contextPath}/shop/listProduct"
+										class="nav__dropdown-item">Tất cả sản phẩm</a> <a
+										href="${pageContext.request.contextPath}/shop/addProduct"
+										class="nav__dropdown-item">Thêm sản phẩm</a> <a
+										href="${pageContext.request.contextPath}/shop/addProduct"
 										class="nav__dropdown-item">Sản phẩm vi phạm</a>
 								</div>
 							</div>
@@ -187,7 +222,7 @@
 												<button type="submit" class="button btn primary">
 													<span>Tìm kiếm</span>
 												</button>
-											</a> 
+											</a>
 										</div>
 									</div>
 								</div>
@@ -201,7 +236,8 @@
 								<div class="btnArond">
 									<a href="${pageContext.request.contextPath}/shop/addProduct">
 										<button type="button" class="button btn primary">
-											<i class="fas fa-plus icon-fas"></i> <span>Thêm sản phẩm</span>
+											<i class="fas fa-plus icon-fas"></i> <span>Thêm sản
+												phẩm</span>
 										</button>
 									</a>
 									<!-- <button type="button" class="btn btn-primary"><i class="fas fa-plus icon-fas"></i>Add Sub-Category</button> -->
@@ -247,10 +283,13 @@
 																	<i class="bx bx-dots-vertical-rounded"></i>
 																</button>
 																<div class="dropdown-menu">
-																	<a class="dropdown-item" href="${pageContext.request.contextPath}/shop/updateProduct?id=${item.id }">
-																		<i class="bx bx-edit-alt me-1"></i> Sửa</a>
-																	<a class="dropdown-item" onclick="showMess(${item.id})">
-																		<i class="bx bx-trash me-1"></i> Xóa</a>
+																	<a class="dropdown-item"
+																		href="${pageContext.request.contextPath}/shop/updateProduct?id=${item.id }">
+																		<i class="bx bx-edit-alt me-1"></i> Sửa
+																	</a> <a class="dropdown-item"
+																		onclick="showMess(${item.id})"> <i
+																		class="bx bx-trash me-1"></i> Xóa
+																	</a>
 																</div>
 															</div>
 														</td>
@@ -326,6 +365,7 @@
 	<script src="${pageContext.request.contextPath}/js1/nicesellect.js"></script>
 	<!-- Active JS -->
 	<script src="${pageContext.request.contextPath}/js1/active.js"></script>
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 
 </html>

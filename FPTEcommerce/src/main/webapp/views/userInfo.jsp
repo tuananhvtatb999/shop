@@ -54,8 +54,8 @@
 					</div>
 					<div>
 						<i class="fab fa-facebook-messenger header-top-right-link"
-							style="margin-right: 3px"></i> <a
-							class="header-top-right-link" href="#">Bán hàng</a>
+							style="margin-right: 3px"></i> <a class="header-top-right-link"
+							href="#">Bán hàng</a>
 					</div>
 				</div>
 			</div>
@@ -64,13 +64,14 @@
 			<div class="header-bottom">
 				<!-- Header-left -->
 				<ul class="header-bottom-left">
-					<li class="header-bottom-logo"><a href="#"> <img
+					<li class="header-bottom-logo"><a
+						href="${pageContext.request.contextPath}/home"> <img
 							src="${pageContext.request.contextPath}/imgs/logo.svg" alt="logo" />
 					</a></li>
 					<li class="header-bottom-item"><a href="#"> <span
 							class="header-bottom-item-text text-hover active">Shopping</span>
 					</a></li>
-					
+
 				</ul>
 				<!-- end Header-left -->
 				<!-- Header-center -->
@@ -82,19 +83,53 @@
 				<!-- end Header-center -->
 				<!-- Header-right -->
 				<ul class="header-bottom-right">
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="far fa-bell"></i>
-					</a></li>
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="fas fa-shopping-bag"></i>
-					</a></li>
-					<li class="header-bottom-right-items user">
+					<li class="header-bottom-right-items">
 						<div class="header-bottom-right-item">
-							<a href="#"> <i class="far fa-user"></i>
+							<a href="#"> <i class="far fa-bell"></i>
 							</a>
-						</div> <a class="about-user" href="#"> <span class="about-user-1">Tài
-								khoản</span> <span class="about-user-2">Xin chào!</span>
-					</a> <i class="fas fa-caret-down" style="font-size: 1.6rem"></i>
+						</div>
+					</li>
+					<li class="header-bottom-right-items">
+						<div class="header-bottom-right-item">
+							<a href="${pageContext.request.contextPath}/cart"> <i
+								class="fas fa-shopping-bag"><span class="badge"
+									id="quantity-product-in-cart"></span></i>
+							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items user action ">
+						<div class="profile" onclick="menuToggle();">
+							<div class="header-bottom-right-item">
+								<a href="#"> <i class="far fa-user"></i>
+								</a>
+							</div>
+							<div class="profile-right">
+
+								<a class="about-user" href="#"> <span class="about-user-1"></span>
+									<span class="about-user-2">Xin chào!</span> <span
+									class="about-user-1"><c:out
+											value="${sessionScope.email }"></c:out></span>
+								</a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<c:choose>
+									<c:when test="${sessionScope.email == null}">
+										<li><a href="login">Đăng Nhập</a></li>
+										<li class="border-top"><a href="register">Đăng Ký</a></li>
+									</c:when>
+									<c:when test="${sessionScope.email != null}">
+										<li><a
+											href="${pageContext.request.contextPath}/customer/updateProfile">
+												Thông tin </a></li>
+										<li><a href="logout"> Đăng xuất </a></li>
+
+									</c:when>
+
+								</c:choose>
+							</ul>
+						</div>
 					</li>
 				</ul>
 				<!-- end Header-right -->
@@ -127,9 +162,12 @@
 				<nav class="sidebar" id="sidebar">
 					<div class="aside__user">
 						<div class="aside__user-img">
-							<img src="${pageContext.request.contextPath}/${sessionScope.path }" />
-						</div>						
-						<div class="aside__user-name"><c:out value="${sessionScope.username }"></c:out></div>
+							<img
+								src="${pageContext.request.contextPath}/${sessionScope.path }" />
+						</div>
+						<div class="aside__user-name">
+							<c:out value="${sessionScope.username }"></c:out>
+						</div>
 					</div>
 					<ul class="nav">
 						<li class="nav-item active" data-tab-select="user-information">
@@ -140,11 +178,12 @@
 							<ul class="nav-child">
 								<li class="nav-child-item active"
 									data-tab-select="user-information"><a
-									class="nav-child-link" href="#">
-										<span class="menu-child-title">Hồ sơ</span>
+									class="nav-child-link" href="#"> <span
+										class="menu-child-title">Hồ sơ</span>
 								</a></li>
 								<li class="nav-child-item" data-tab-select="change-password">
-									<a class="nav-child-link" href="${pageContext.request.contextPath}/customer/updatePassword">
+									<a class="nav-child-link"
+									href="${pageContext.request.contextPath}/customer/updatePassword">
 										<span class="menu-child-title">Đổi mật khẩu</span>
 								</a>
 								</li>
@@ -152,8 +191,8 @@
 						</li>
 						<li class="nav-item" data-tab-select="user-order"><a
 							class="nav-link"
-							href="${pageContext.request.contextPath}/user-order.html"> <span
-								class="menu-icon"> <i class="fab fa-shopify"></i>
+							href="${pageContext.request.contextPath}/customer/order/list/1">
+								<span class="menu-icon"> <i class="fab fa-shopify"></i>
 							</span> <span class="menu-title">Đơn mua</span>
 						</a></li>
 					</ul>
@@ -202,24 +241,22 @@
 											<label for="gender">Giới tính</label>
 											<div class="gender__item-list">
 												<span class="gender__item"> <form:radiobutton
-														id="male" name="gender" value="0" path="gender" />
-													<label for="male">Nam</label>
+														id="male" name="gender" value="0" path="gender" /> <label
+													for="male">Nam</label>
 												</span> <span class="gender__item"> <form:radiobutton
-														id="female" name="gender" value="1"
-														path="gender" /> <label
+														id="female" name="gender" value="1" path="gender" /> <label
 													for="female">Nữ</label>
 												</span> <span class="gender__item"> <form:radiobutton
-														id="neutral" name="gender" value="2"
-														path="gender" /> <label
+														id="neutral" name="gender" value="2" path="gender" /> <label
 													for="neutral">Khác</label>
 												</span>
 											</div>
 										</div>
 										<div class="form-group group__birth">
-											<label for="birth">Ngày sinh</label> <form:input id="birth"
-												name="birth" type="date" cssClass="form-input"
-												placeholder="Chọn ngày sinh của bạn" path="birthDay"
-												 />
+											<label for="birth">Ngày sinh</label>
+											<form:input id="birth" name="birth" type="date"
+												cssClass="form-input" placeholder="Chọn ngày sinh của bạn"
+												path="birthDay" />
 										</div>
 										<div class="form-button">
 											<button type="submit" class="btn btn-primary">
@@ -267,8 +304,7 @@
 							href="tel:0906.880.960" title="Hotline: 0906.880.960">Hotline:
 								0906.880.960</a></li>
 						<li class="block_item"><a class="block_link" href="/"
-							title="9h-18h từ Thứ 2 đến Thứ 6">(9h-18h
-								từ Thứ 2 đến Thứ 6)</a></li>
+							title="9h-18h từ Thứ 2 đến Thứ 6">(9h-18h từ Thứ 2 đến Thứ 6)</a></li>
 						<li class="block_item"><a class="block_link"
 							href="email:customer@dosiinvn.com"
 							title="Email: customer@dosiinvn.com">Email:
@@ -454,6 +490,6 @@
 		<div class="footer_bot">Copyright 2015-2021 &copy; Công ty cổ
 			phần DOSI GROUP</div>
 	</footer>
-	<!-- ----------------- End FOOTER---------------------- -->
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 </html>

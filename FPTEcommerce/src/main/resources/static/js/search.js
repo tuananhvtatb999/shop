@@ -175,8 +175,14 @@ var Product = {
             dataType: "json",
             success: function (result) {
                 $("#status").empty();
+                if(status === 2){
+                    $("#status").append('<lable class="badge text_color bg-label-warning">Chờ lấy hàng</lable>');
+                }
                 if(status === 3){
-                    $("#status").append('<lable class="badge bg-label-primary">Đang giao</lable>');
+                    $("#status").append('<lable class="badge text_color bg-label-primary">Đang giao</lable>');
+                }
+                if(status === 5){
+                    $("#status").append('<lable class="badge text_color bg-label-danger">Đã hủy</lable>');
                 }
             }
         });

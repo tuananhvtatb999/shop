@@ -89,7 +89,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping({"/shop"})
+	@GetMapping({"/shop-detail"})
 	public String shop(Model model, @RequestParam(name = "id") Integer id) {
 		ShopEntity shop = shopService.findById(id);
 		model.addAttribute("shop", shop);

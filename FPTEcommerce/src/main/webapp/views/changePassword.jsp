@@ -80,7 +80,8 @@
 			<div class="header-bottom">
 				<!-- Header-left -->
 				<ul class="header-bottom-left">
-					<li class="header-bottom-logo"><a href="#"> <img
+					<li class="header-bottom-logo"><a
+						href="${pageContext.request.contextPath}/home"> <img
 							src="/assets/imgs/logo.svg" alt="logo" />
 					</a></li>
 					<li class="header-bottom-item"><a href="#"> <span
@@ -100,19 +101,53 @@
 				<!-- end Header-center -->
 				<!-- Header-right -->
 				<ul class="header-bottom-right">
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="far fa-bell"></i>
-					</a></li>
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="fas fa-shopping-bag"></i>
-					</a></li>
-					<li class="header-bottom-right-items user">
+					<li class="header-bottom-right-items">
 						<div class="header-bottom-right-item">
-							<a href="#"> <i class="far fa-user"></i>
+							<a href="#"> <i class="far fa-bell"></i>
 							</a>
-						</div> <a class="about-user" href="#"> <span class="about-user-1">Tài
-								khoản</span> <span class="about-user-2">Xin chào!</span>
-					</a> <i class="fas fa-caret-down" style="font-size: 1.6rem"></i>
+						</div>
+					</li>
+					<li class="header-bottom-right-items">
+						<div class="header-bottom-right-item">
+							<a href="${pageContext.request.contextPath}/cart"> <i
+								class="fas fa-shopping-bag"><span class="badge"
+									id="quantity-product-in-cart"></span></i>
+							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items user action ">
+						<div class="profile" onclick="menuToggle();">
+							<div class="header-bottom-right-item">
+								<a href="#"> <i class="far fa-user"></i>
+								</a>
+							</div>
+							<div class="profile-right">
+
+								<a class="about-user" href="#"> <span class="about-user-1"></span>
+									<span class="about-user-2">Xin chào!</span> <span
+									class="about-user-1"><c:out
+											value="${sessionScope.email }"></c:out></span>
+								</a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<c:choose>
+									<c:when test="${sessionScope.email == null}">
+										<li><a href="login">Đăng Nhập</a></li>
+										<li class="border-top"><a href="register">Đăng Ký</a></li>
+									</c:when>
+									<c:when test="${sessionScope.email != null}">
+										<li><a
+											href="${pageContext.request.contextPath}/customer/updateProfile">
+												Thông tin </a></li>
+										<li><a href="logout"> Đăng xuất </a></li>
+
+									</c:when>
+
+								</c:choose>
+							</ul>
+						</div>
 					</li>
 				</ul>
 				<!-- end Header-right -->
@@ -157,8 +192,9 @@
 						</a>
 							<ul class="nav-child">
 								<li class="nav-child-item" data-tab-select="user-information">
-									<a class="nav-child-link" href="${pageContext.request.contextPath}/customer/updateProfile"> <span
-										class="menu-child-title">Hồ sơ</span>
+									<a class="nav-child-link"
+									href="${pageContext.request.contextPath}/customer/updateProfile">
+										<span class="menu-child-title">Hồ sơ</span>
 								</a>
 								</li>
 								<li class="nav-child-item active"
@@ -486,5 +522,6 @@
 	<script src="${pageContext.request.contextPath}/js1/active.js"></script>
 	<!-- ----------------- End FOOTER---------------------- -->
 	<script src="${pageContext.request.contextPath}/js/togglePassword.js"></script>
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 </html>

@@ -136,7 +136,8 @@
 			<div class="header-bottom">
 				<!-- Header-left -->
 				<ul class="header-bottom-left">
-					<li class="header-bottom-logo"><a href="#"> <img
+					<li class="header-bottom-logo"><a
+						href="${pageContext.request.contextPath}/home"> <img
 							src="${pageContext.request.contextPath}/logo.svg" alt="logo" />
 					</a></li>
 					<li class="header-bottom-item"><a href="#"> <span
@@ -156,19 +157,53 @@
 				<!-- end Header-center -->
 				<!-- Header-right -->
 				<ul class="header-bottom-right">
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="far fa-bell"></i>
-					</a></li>
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="fas fa-shopping-bag"></i>
-					</a></li>
-					<li class="header-bottom-right-items user">
+					<li class="header-bottom-right-items">
 						<div class="header-bottom-right-item">
-							<a href="#"> <i class="far fa-user"></i>
+							<a href="#"> <i class="far fa-bell"></i>
 							</a>
-						</div> <a class="about-user" href="#"> <span class="about-user-1">Tài
-								khoản</span> <span class="about-user-2">Xin chào!</span>
-					</a> <i class="fas fa-caret-down" style="font-size: 1.6rem"></i>
+						</div>
+					</li>
+					<li class="header-bottom-right-items">
+						<div class="header-bottom-right-item">
+							<a href="${pageContext.request.contextPath}/cart"> <i
+								class="fas fa-shopping-bag"><span class="badge"
+									id="quantity-product-in-cart"></span></i>
+							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items user action ">
+						<div class="profile" onclick="menuToggle();">
+							<div class="header-bottom-right-item">
+								<a href="#"> <i class="far fa-user"></i>
+								</a>
+							</div>
+							<div class="profile-right">
+
+								<a class="about-user" href="#"> <span class="about-user-1"></span>
+									<span class="about-user-2">Xin chào!</span> <span
+									class="about-user-1"><c:out
+											value="${sessionScope.email }"></c:out></span>
+								</a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<c:choose>
+									<c:when test="${sessionScope.email == null}">
+										<li><a href="login">Đăng Nhập</a></li>
+										<li class="border-top"><a href="register">Đăng Ký</a></li>
+									</c:when>
+									<c:when test="${sessionScope.email != null}">
+										<li><a
+											href="${pageContext.request.contextPath}/customer/updateProfile">
+												Thông tin </a></li>
+										<li><a href="logout"> Đăng xuất </a></li>
+
+									</c:when>
+
+								</c:choose>
+							</ul>
+						</div>
 					</li>
 				</ul>
 				<!-- end Header-right -->
@@ -330,131 +365,134 @@
 	<!-- ----------------- End MAIN: SETTING  ---------------------- -->
 	<!-- ----------------- Begin FOOTER---------------------- -->
 	<footer class="footer">
-  <div class="footer_top">
-    <div class="footer_top-item">
-      <div class="block_wrapper">
-        <ul class="block_list">
-          <li class="block_item logo">
-            <a href="/"><img src="${pageContext.request.contextPath}/imgs/logo-white.png" alt="logo-white" /></a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="tel:0906.880.960" title="Hotline: 0906.880.960">Hotline: 0906.880.960</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="/" title="9h-18h từ Thứ 2 đến Thứ 6">(9h-18h từ Thứ 2 đến Thứ 6)</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="email:customer@dosiinvn.com" title="Email: customer@dosiinvn.com">Email:
-              customer@dosiinvn.com</a>
-          </li>
-        </ul>
-        <h5 class="block_heading">Kết nối với chúng tôi</h5>
-        <ul class="block-app-list">
-          <li class="block-app-item">
-            <a href="https://www.instagram.com/dosiin.magz/" title="Instagram"><i
-                class="fab fa-instagram-square"></i></a>
-          </li>
-          <li class="block-app-item">
-            <a class="dosiin_d-block" href="https://www.facebook.com/dosiinvietnam/" title="Facebook"><i
-                class="fab fa-facebook"></i></a>
-          </li>
-        </ul>
-      </div>
-      <div class="block_wrapper">
-        <h5 class="block_heading">Về Dosiin</h5>
+		<div class="footer_top">
+			<div class="footer_top-item">
+				<div class="block_wrapper">
+					<ul class="block_list">
+						<li class="block_item logo"><a href="/"><img
+								src="${pageContext.request.contextPath}/imgs/logo-white.png"
+								alt="logo-white" /></a></li>
+						<li class="block_item"><a class="block_link"
+							href="tel:0906.880.960" title="Hotline: 0906.880.960">Hotline:
+								0906.880.960</a></li>
+						<li class="block_item"><a class="block_link" href="/"
+							title="9h-18h từ Thứ 2 đến Thứ 6">(9h-18h từ Thứ 2 đến Thứ 6)</a>
+						</li>
+						<li class="block_item"><a class="block_link"
+							href="email:customer@dosiinvn.com"
+							title="Email: customer@dosiinvn.com">Email:
+								customer@dosiinvn.com</a></li>
+					</ul>
+					<h5 class="block_heading">Kết nối với chúng tôi</h5>
+					<ul class="block-app-list">
+						<li class="block-app-item"><a
+							href="https://www.instagram.com/dosiin.magz/" title="Instagram"><i
+								class="fab fa-instagram-square"></i></a></li>
+						<li class="block-app-item"><a class="dosiin_d-block"
+							href="https://www.facebook.com/dosiinvietnam/" title="Facebook"><i
+								class="fab fa-facebook"></i></a></li>
+					</ul>
+				</div>
+				<div class="block_wrapper">
+					<h5 class="block_heading">Về Dosiin</h5>
 
-        <ul class="block_list">
-          <li class="block_item">
-            <a class="block_link" href="#">Các điều khoản khác</a>
-          </li>
-          <li class="block_item"><a class="block_link" href="#">Hợp tác</a></li>
-          <li class="block_item"><a class="block_link" href="#">Hỏi và Đáp</a></li>
-          <li class="block_item">
-            <a class="block_link" href="#">Hạn chế với thời gian và quản lý</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="#">Nghĩa vụ của người bán</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="#">Nghĩa vụ của khách hàng</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="#">Chính sách vận chuyển</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="#">Về chúng tôi</a>
-          </li>
-        </ul>
-      </div>
-      <div class="block_wrapper">
-        <h5 class="block_heading">Nội dung chính sách</h5>
-        <ul class="block_list">
-          <li class="block_item">
-            <a class="block_link" href="#">Chính sách bảo mật</a>
-          </li>
-          <li class="block_item"><a class="block_link" href="#">Điều khoản dịch vụ</a></li>
-          <li class="block_item"><a class="block_link" href="#">Chính sách thành viên</a></li>
-          <li class="block_item">
-            <a class="block_link" href="#">Chính sách thanh toán</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="#">Chính sách bảo mật thanh toán</a>
-          </li>
-          <li class="block_item">
-            <a class="block_link" href="#">Chính sách dành cho khách hàng</a>
-          </li>
-        </ul>
-      </div>
-      <div class="block_wrapper">
-        <h5 class="block_heading">Cách thức thanh toán</h5>
-        <ul class="block_card-list">
-          <li class="block_card-item">
-            <div class="card-item_list">
-              <a class="block_link" href="/" title="COD Tiền mặt">
-                <div class="card-item_box">
-                  <div class="card-item_icon"><img src="${pageContext.request.contextPath}/imgs/social/cod.webp" alt="Tiền mặt" title="Tiền mặt">
-                  </div>
-                  <div class="card-item_text">Tiền mặt</div>
-                </div>
-              </a><a class="block_link" href="/" title="Momo">
-                <div class="card-item_box">
-                  <div class="card-item_icon"><img src="${pageContext.request.contextPath}/imgs/social/momo.png" alt="Momo" title="Momo" />
-                  </div>
-                  <div class="card-item_text">Momo</div>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="block_card-item">
-            <div class="card-item_list">
-              <a class="block_link" href="/" title="VISA, MASTER, JCB">
-                <div class="card-item_box">
-                  <div class="card-item_icon"><img src="${pageContext.request.contextPath}/imgs/social/credit-card.png" alt="VISA, MASTER, JCB"
-                      title="VISA, MASTER, JCB" /></div>
-                  <div class="card-item_text">VISA, MASTER, JCB</div>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="block_card-item">
-            <div class="card-item_list">
-              <a class="block_link" href="/" title="Internet Banking">
-                <div class="card-item_box">
-                  <div class="card-item_icon"><img src="${pageContext.request.contextPath}/imgs/social/credit-card.png" alt="Internet Banking"
-                      title="Internet Banking" /></div>
-                  <div class="card-item_text">Internet Banking</div>
-                </div>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer_bot">
-    Copyright 2022 &copy; FPT University DaNang
-  </div>
-</footer>
-	<!-- ----------------- End FOOTER---------------------- -->
+					<ul class="block_list">
+						<li class="block_item"><a class="block_link" href="#">Các
+								điều khoản khác</a></li>
+						<li class="block_item"><a class="block_link" href="#">Hợp
+								tác</a></li>
+						<li class="block_item"><a class="block_link" href="#">Hỏi
+								và Đáp</a></li>
+						<li class="block_item"><a class="block_link" href="#">Hạn
+								chế với thời gian và quản lý</a></li>
+						<li class="block_item"><a class="block_link" href="#">Nghĩa
+								vụ của người bán</a></li>
+						<li class="block_item"><a class="block_link" href="#">Nghĩa
+								vụ của khách hàng</a></li>
+						<li class="block_item"><a class="block_link" href="#">Chính
+								sách vận chuyển</a></li>
+						<li class="block_item"><a class="block_link" href="#">Về
+								chúng tôi</a></li>
+					</ul>
+				</div>
+				<div class="block_wrapper">
+					<h5 class="block_heading">Nội dung chính sách</h5>
+					<ul class="block_list">
+						<li class="block_item"><a class="block_link" href="#">Chính
+								sách bảo mật</a></li>
+						<li class="block_item"><a class="block_link" href="#">Điều
+								khoản dịch vụ</a></li>
+						<li class="block_item"><a class="block_link" href="#">Chính
+								sách thành viên</a></li>
+						<li class="block_item"><a class="block_link" href="#">Chính
+								sách thanh toán</a></li>
+						<li class="block_item"><a class="block_link" href="#">Chính
+								sách bảo mật thanh toán</a></li>
+						<li class="block_item"><a class="block_link" href="#">Chính
+								sách dành cho khách hàng</a></li>
+					</ul>
+				</div>
+				<div class="block_wrapper">
+					<h5 class="block_heading">Cách thức thanh toán</h5>
+					<ul class="block_card-list">
+						<li class="block_card-item">
+							<div class="card-item_list">
+								<a class="block_link" href="/" title="COD Tiền mặt">
+									<div class="card-item_box">
+										<div class="card-item_icon">
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/cod.webp"
+												alt="Tiền mặt" title="Tiền mặt">
+										</div>
+										<div class="card-item_text">Tiền mặt</div>
+									</div>
+								</a><a class="block_link" href="/" title="Momo">
+									<div class="card-item_box">
+										<div class="card-item_icon">
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/momo.png"
+												alt="Momo" title="Momo" />
+										</div>
+										<div class="card-item_text">Momo</div>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="block_card-item">
+							<div class="card-item_list">
+								<a class="block_link" href="/" title="VISA, MASTER, JCB">
+									<div class="card-item_box">
+										<div class="card-item_icon">
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/credit-card.png"
+												alt="VISA, MASTER, JCB" title="VISA, MASTER, JCB" />
+										</div>
+										<div class="card-item_text">VISA, MASTER, JCB</div>
+									</div>
+								</a>
+							</div>
+						</li>
+						<li class="block_card-item">
+							<div class="card-item_list">
+								<a class="block_link" href="/" title="Internet Banking">
+									<div class="card-item_box">
+										<div class="card-item_icon">
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/credit-card.png"
+												alt="Internet Banking" title="Internet Banking" />
+										</div>
+										<div class="card-item_text">Internet Banking</div>
+									</div>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer_bot">Copyright 2022 &copy; FPT University
+			DaNang</div>
+	</footer>
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 </html>

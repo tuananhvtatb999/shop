@@ -74,7 +74,8 @@
 
 
 					</div>
-					<li class="header-bottom-logo"><a href="#"> <img
+					<li class="header-bottom-logo"><a
+						href="${pageContext.request.contextPath}/home"> <img
 							src="${pageContext.request.contextPath}/newimage/logo.svg"
 							alt="logo" />
 					</a></li>
@@ -82,21 +83,52 @@
 				<!-- end Header-left -->
 				<!-- Header-right -->
 				<ul class="header-bottom-right">
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="far fa-bell"></i>
-					</a></li>
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="fas fa-shopping-bag"></i>
-					</a></li>
-					<li class="header-bottom-right-items user">
+					<li class="header-bottom-right-items">
 						<div class="header-bottom-right-item">
-							<a href="#"> <i class="far fa-user"></i>
+							<a href="#"> <i class="far fa-bell"></i>
 							</a>
 						</div>
-						<div class="user-right">
-							<a class="about-user" href="#"> <span class="about-user-1">Tài
-									khoản</span> <span class="about-user-2">Xin chào!</span>
-							</a> <i class="fas fa-caret-down"></i>
+					</li>
+					<li class="header-bottom-right-items">
+						<div class="header-bottom-right-item">
+							<a href="${pageContext.request.contextPath}/cart"> <i
+								class="fas fa-shopping-bag"><span class="badge"
+									id="quantity-product-in-cart"></span></i>
+							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items user action ">
+						<div class="profile" onclick="menuToggle();">
+							<div class="header-bottom-right-item">
+								<a href="#"> <i class="far fa-user"></i>
+								</a>
+							</div>
+							<div class="profile-right">
+
+								<a class="about-user" href="#"> <span class="about-user-1"></span>
+									<span class="about-user-2">Xin chào!</span> <span
+									class="about-user-1"><c:out
+											value="${sessionScope.email }"></c:out></span>
+								</a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<c:choose>
+									<c:when test="${sessionScope.email == null}">
+										<li><a href="login">Đăng Nhập</a></li>
+										<li class="border-top"><a href="register">Đăng Ký</a></li>
+									</c:when>
+									<c:when test="${sessionScope.email != null}">
+										<li><a
+											href="${pageContext.request.contextPath}/customer/updateProfile">
+												Thông tin </a></li>
+										<li><a href="logout"> Đăng xuất </a></li>
+
+									</c:when>
+
+								</c:choose>
+							</ul>
 						</div>
 					</li>
 				</ul>
@@ -124,30 +156,34 @@
                           </a> -->
 
 							<div class="nav__dropdown">
-								<a  class="nav__link"> <i
-									class='bx bx-closet nav__icon'></i> <span class="nav__name">Quản lý sản phẩm</span>
+								<a class="nav__link"> <i class='bx bx-closet nav__icon'></i>
+									<span class="nav__name">Quản lý sản phẩm</span>
 
 								</a>
 
 								<div class="nav__dropdown-collapse">
 									<div class="nav__dropdown-content">
-										<a href="${pageContext.request.contextPath}/shop/listProduct" class="nav__dropdown-item">Tất cả sản phẩm</a> 
-										<a href="${pageContext.request.contextPath}/shop/addProduct" class="nav__dropdown-item">Thêm sản phẩm</a> 
-										<a href="#" class="nav__dropdown-item">Sản phẩm vi phạm</a> 
+										<a href="${pageContext.request.contextPath}/shop/listProduct"
+											class="nav__dropdown-item">Tất cả sản phẩm</a> <a
+											href="${pageContext.request.contextPath}/shop/addProduct"
+											class="nav__dropdown-item">Thêm sản phẩm</a> <a href="#"
+											class="nav__dropdown-item">Sản phẩm vi phạm</a>
 									</div>
 								</div>
 							</div>
 
 							<div class="nav__dropdown">
-								<a  class="nav__link"> <i
-									class='bx bx-task nav__icon'></i> <span class="nav__name">Quản lý đơn hàng</span>
+								<a class="nav__link"> <i class='bx bx-task nav__icon'></i> <span
+									class="nav__name">Quản lý đơn hàng</span>
 
 								</a>
 
 								<div class="nav__dropdown-collapse">
 									<div class="nav__dropdown-content">
-										<a href="${pageContext.request.contextPath}/shop/listOrder" class="nav__dropdown-item">Tât cả đơn hàng</a> 
-										<a href="${pageContext.request.contextPath}/shop/listOrderCancel" class="nav__dropdown-item">Đơn hủy</a>
+										<a href="${pageContext.request.contextPath}/shop/listOrder"
+											class="nav__dropdown-item">Tât cả đơn hàng</a> <a
+											href="${pageContext.request.contextPath}/shop/listOrderCancel"
+											class="nav__dropdown-item">Đơn hủy</a>
 									</div>
 								</div>
 							</div>
@@ -170,7 +206,8 @@
 				<div class="row">
 					<div class="center-block col-xxl">
 						<form:form id="form-addProduct" class="card mb-3 mb-lg-5"
-							action="${pageContext.request.contextPath}/shop/doAddProduct" method="post" modelAttribute="product"
+							action="${pageContext.request.contextPath}/shop/doAddProduct"
+							method="post" modelAttribute="product"
 							enctype="multipart/form-data">
 							<!-- Header -->
 							<div class="card-header">
@@ -192,8 +229,8 @@
 
 											<form:input type="text" cssClass="form-control"
 												name="productName" id="productNameLabel"
-												placeholder="Áo, quần..."
-												aria-label="Shirt, t-shirts, etc." path="name" />
+												placeholder="Áo, quần..." aria-label="Shirt, t-shirts, etc."
+												path="name" />
 
 										</div>
 									</div>
@@ -212,7 +249,7 @@
 									</div>
 								</div>
 								<!-- End Form Group -->
-						
+
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
@@ -276,7 +313,7 @@
 											<label for="productMaterial" class="input-label">Chất
 												liệu</label>
 											<form:input type="text" cssClass="form-control"
-												name="Material" id="productMaterial" 
+												name="Material" id="productMaterial"
 												aria-label="eg. 348121032"
 												path="productDetailsEntity.material" />
 										</div>
@@ -298,7 +335,8 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="mb-3 form-group">
-											<label for="productSubCategory" class="input-label">Danh mục phụ</label>
+											<label for="productSubCategory" class="input-label">Danh
+												mục phụ</label>
 											<form:select id="productSubCategory" cssClass="form-select"
 												path="subCategoryEntity.id">
 												<form:option value="0">Chọn danh mục phụ</form:option>
@@ -407,14 +445,15 @@
 													<div class="size-wrap ">
 														<div class="size-tile tile-right">
 															<form:checkbox id="sizel" value="L"
-																cssClass="form-check-input check-inline  check item" path="productDetailsEntity.size"/>
+																cssClass="form-check-input check-inline  check item"
+																path="productDetailsEntity.size" />
 															<span>L</span>
 														</div>
 														<div class="">
 															<div class=" cost-box">
 																<div class="">
-																		<form:input cssClass="form-control sizel"
-																		placeholder="Nhập số lượng" path="quantity"/>
+																	<form:input cssClass="form-control sizel"
+																		placeholder="Nhập số lượng" path="quantity" />
 
 																</div>
 															</div>
@@ -426,14 +465,15 @@
 													<div class="size-wrap ">
 														<div class="size-tile ">
 															<form:checkbox id="sizexl" value="XL"
-																cssClass="form-check-input check-inline  check item" path="productDetailsEntity.size" />
+																cssClass="form-check-input check-inline  check item"
+																path="productDetailsEntity.size" />
 															<span>XL</span>
 														</div>
 														<div class="">
 															<div class=" cost-box">
 																<div class="">
 																	<form:input class="sizexl form-control"
-																		placeholder="Nhập số lượng" path="quantity"/>
+																		placeholder="Nhập số lượng" path="quantity" />
 																</div>
 															</div>
 														</div>
@@ -442,14 +482,15 @@
 													<div class="size-wrap ">
 														<div class="size-tile tile-right">
 															<form:checkbox id="sizexxl" value="XXL"
-																class="form-check-input check-inline  check item" path="productDetailsEntity.size" />
+																class="form-check-input check-inline  check item"
+																path="productDetailsEntity.size" />
 															<span>XXL</span>
 														</div>
 														<div class="">
 															<div class=" cost-box">
 																<div class="">
 																	<form:input class="sizexxl form-control"
-																		placeholder="Nhập số lượng" path="quantity"/>
+																		placeholder="Nhập số lượng" path="quantity" />
 																</div>
 															</div>
 														</div>
@@ -464,7 +505,8 @@
 
 									<div class="">
 										<div class="form-group">
-											<label for="productDescription" class="input-label">Miêu tả sản phẩm</label>
+											<label for="productDescription" class="input-label">Miêu
+												tả sản phẩm</label>
 											<form:textarea id="productDescription" path="description"></form:textarea>
 										</div>
 									</div>
@@ -475,8 +517,8 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 1</p> <input type="file"
-														name="multipartFile" class="upload__inputfile">
+														<p>Tải ảnh 1</p> <input type="file" name="multipartFile"
+														class="upload__inputfile">
 													</label>
 												</div>
 												<div class="upload__img-wrap"></div>
@@ -486,8 +528,8 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 2</p> <input type="file"
-														name="multipartFile1" class="upload__inputfile">
+														<p>Tải ảnh 2</p> <input type="file" name="multipartFile1"
+														class="upload__inputfile">
 													</label>
 												</div>
 												<div class="upload__img-wrap"></div>
@@ -497,8 +539,8 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 3</p> <input type="file"
-														name="multipartFile2" class="upload__inputfile">
+														<p>Tải ảnh 3</p> <input type="file" name="multipartFile2"
+														class="upload__inputfile">
 													</label>
 												</div>
 												<div class="upload__img-wrap"></div>
@@ -508,8 +550,8 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 4</p> <input type="file"
-														name="multipartFile3" class="upload__inputfile">
+														<p>Tải ảnh 4</p> <input type="file" name="multipartFile3"
+														class="upload__inputfile">
 													</label>
 												</div>
 												<div class="upload__img-wrap"></div>
@@ -540,7 +582,7 @@
 	</div>
 
 	<script src="${pageContext.request.contextPath}/newjs/AddProduct.js"></script>
-
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 
 </html>

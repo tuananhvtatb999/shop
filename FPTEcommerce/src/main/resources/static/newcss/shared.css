@@ -272,8 +272,8 @@ a {
 .badge {
   background: linear-gradient(135deg, #ed55c7, #6756ca);
   position: absolute;
-  top: 28px;
-  right: 8.5%;
+  top: 34px;
+  right: 13%;
   border-radius: 10px;
   color: white;
   display: flex;

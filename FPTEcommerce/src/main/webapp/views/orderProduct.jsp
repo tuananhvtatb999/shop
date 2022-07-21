@@ -61,8 +61,8 @@
 					</div>
 					<div>
 						<i class="fab fa-facebook-messenger header-top-right-link"
-							style="margin-right: 3px"></i> <a
-							class="header-top-right-link" href="#">Bán hàng</a>
+							style="margin-right: 3px"></i> <a class="header-top-right-link"
+							href="#">Bán hàng</a>
 					</div>
 				</div>
 			</div>
@@ -71,7 +71,8 @@
 			<div class="header-bottom">
 				<!-- Header-left -->
 				<ul class="header-bottom-left">
-					<li class="header-bottom-logo"><a href="#"> <img
+					<li class="header-bottom-logo"><a
+						href="${pageContext.request.contextPath}/home"> <img
 							src="/assets/imgs/logo.svg" alt="logo" />
 					</a></li>
 					<li class="header-bottom-item"><a href="#"> <span
@@ -91,19 +92,53 @@
 				<!-- end Header-center -->
 				<!-- Header-right -->
 				<ul class="header-bottom-right">
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="far fa-bell"></i>
-					</a></li>
-					<li class="header-bottom-right-item"><a href="#"> <i
-							class="fas fa-shopping-bag"></i>
-					</a></li>
-					<li class="header-bottom-right-items user">
+					<li class="header-bottom-right-items">
 						<div class="header-bottom-right-item">
-							<a href="#"> <i class="far fa-user"></i>
+							<a href="#"> <i class="far fa-bell"></i>
 							</a>
-						</div> <a class="about-user" href="#"> <span class="about-user-1">Tài
-								khoản</span> <span class="about-user-2">Xin chào!</span>
-					</a> <i class="fas fa-caret-down" style="font-size: 1.6rem"></i>
+						</div>
+					</li>
+					<li class="header-bottom-right-items">
+						<div class="header-bottom-right-item">
+							<a href="${pageContext.request.contextPath}/cart"> <i
+								class="fas fa-shopping-bag"><span class="badge"
+									id="quantity-product-in-cart"></span></i>
+							</a>
+						</div>
+					</li>
+					<li class="header-bottom-right-items user action ">
+						<div class="profile" onclick="menuToggle();">
+							<div class="header-bottom-right-item">
+								<a href="#"> <i class="far fa-user"></i>
+								</a>
+							</div>
+							<div class="profile-right">
+
+								<a class="about-user" href="#"> <span class="about-user-1"></span>
+									<span class="about-user-2">Xin chào!</span> <span
+									class="about-user-1"><c:out
+											value="${sessionScope.email }"></c:out></span>
+								</a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<c:choose>
+									<c:when test="${sessionScope.email == null}">
+										<li><a href="login">Đăng Nhập</a></li>
+										<li class="border-top"><a href="register">Đăng Ký</a></li>
+									</c:when>
+									<c:when test="${sessionScope.email != null}">
+										<li><a
+											href="${pageContext.request.contextPath}/customer/updateProfile">
+												Thông tin </a></li>
+										<li><a href="logout"> Đăng xuất </a></li>
+
+									</c:when>
+
+								</c:choose>
+							</ul>
+						</div>
 					</li>
 				</ul>
 				<!-- end Header-right -->
@@ -153,16 +188,15 @@
 									src="/assets/imgs/card3.jpeg" /> <img
 									src="/assets/imgs/card5.webp" />
 							</div>
-							<span class="next"><i
-								class="fa-solid fa-angle-right"></i></span>
+							<span class="next"><i class="fa-solid fa-angle-right"></i></span>
 						</div>
 					</div>
 				</div>
 				<div class="detail__product-detail">
 					<div class="product__box--detail">
 						<p class="product__brand">
-							Thương hiệu:&nbsp;<span class="text-highlight">acmé
-								de la vie (ADLV)</span>
+							Thương hiệu:&nbsp;<span class="text-highlight">acmé de la
+								vie (ADLV)</span>
 						</p>
 						<div class="product__name-wishlist">
 							<p class="product__name">Áo thun ngắn tay cổ tròn ADLV Basic
@@ -185,9 +219,8 @@
 								class="fas fa-star star-icon"></i> <i
 								class="fas fa-star star-icon"></i></span> <span
 								class="product-judge__star-number">3</span> <span
-								class="product-judge__dot"><i
-								class="fa-solid fa-circle"></i></span> <span
-								class="product-judge__wishlist"><i
+								class="product-judge__dot"><i class="fa-solid fa-circle"></i></span>
+							<span class="product-judge__wishlist"><i
 								class="fa-regular fa-heart text-highlight"></i></span> <span
 								class="product-judge__wishlist-number">0</span>
 						</div>
@@ -202,15 +235,13 @@
 							<div class="product__attribute__select">
 								<div class="product__attribute__select-item">
 									<input class="color-input" id="color-red" type="radio"
-										name="color" value="red" /> <label
-										class="color-text" for="color-red"><span
-										class="text">red</span></label>
+										name="color" value="red" /> <label class="color-text"
+										for="color-red"><span class="text">red</span></label>
 								</div>
 								<div class="product__attribute__select-item">
 									<input class="color-input" id="color-green" type="radio"
-										name="color" value="green" /> <label
-										class="color-text" for="color-green"><span
-										class="text">green</span></label>
+										name="color" value="green" /> <label class="color-text"
+										for="color-green"><span class="text">green</span></label>
 								</div>
 							</div>
 						</div>
@@ -225,14 +256,12 @@
 							<div class="product__attribute__select">
 								<div class="product__attribute__select-item">
 									<input class="size-input" id="size-1" type="radio" name="size"
-										value="1" /> <label class="size-text"
-										for="size-1"><span
+										value="1" /> <label class="size-text" for="size-1"><span
 										class="text">1</span></label>
 								</div>
 								<div class="product__attribute__select-item">
 									<input class="size-input" id="size-2" type="radio" name="size"
-										value="2" /> <label class="size-text"
-										for="size-2"><span
+										value="2" /> <label class="size-text" for="size-2"><span
 										class="text">2</span></label>
 								</div>
 							</div>
@@ -267,9 +296,9 @@
 									<p>Tìm hiểu chính sách</p>
 									<span class="marketplace__link"><i
 										class="fa-solid fa-circle-info"></i><span
-										class="marketplace__popup"><strong>Tiếp
-												thị liên kết:</strong>&nbsp;Các thương hiệu đang hợp tác quảng cáo
-											với Dosiin. Người dùng sau khi nhấn “Đặt hàng ngay” trên
+										class="marketplace__popup"><strong>Tiếp thị
+												liên kết:</strong>&nbsp;Các thương hiệu đang hợp tác quảng cáo với
+											Dosiin. Người dùng sau khi nhấn “Đặt hàng ngay” trên
 											Dosi-in.com sẽ được chuyển đến trang web của thương hiệu để
 											hoàn tất việc mua hàng. Các chính sách khuyến mãi, thanh toán
 											và đổi trả sẽ được áp dụng theo chính sách của thương hiệu
@@ -424,8 +453,7 @@
 									<div class="reviews-bar">
 										<div class="reviews-bar__stars">
 											<span class="reviews-bar__star-number">5</span> <span
-												class="reviews-bar__star"><i
-												class="fas fa-star"></i></span>
+												class="reviews-bar__star"><i class="fas fa-star"></i></span>
 										</div>
 										<div class="reviews-bar__progress" style="-percent: 80%"></div>
 										<div class="reviews-bar__percent">80%</div>
@@ -433,8 +461,7 @@
 									<div class="reviews-bar">
 										<div class="reviews-bar__stars">
 											<span class="reviews-bar__star-number">4</span> <span
-												class="reviews-bar__star"><i
-												class="fas fa-star"></i></span>
+												class="reviews-bar__star"><i class="fas fa-star"></i></span>
 										</div>
 										<div class="reviews-bar__progress" style="-percent: 80%"></div>
 										<div class="reviews-bar__percent">100%</div>
@@ -442,8 +469,7 @@
 									<div class="reviews-bar">
 										<div class="reviews-bar__stars">
 											<span class="reviews-bar__star-number">3</span> <span
-												class="reviews-bar__star"><i
-												class="fas fa-star"></i></span>
+												class="reviews-bar__star"><i class="fas fa-star"></i></span>
 										</div>
 										<div class="reviews-bar__progress" style="-percent: 0%"></div>
 										<div class="reviews-bar__percent">10%</div>
@@ -451,8 +477,7 @@
 									<div class="reviews-bar">
 										<div class="reviews-bar__stars">
 											<span class="reviews-bar__star-number">2</span> <span
-												class="reviews-bar__star"><i
-												class="fas fa-star"></i></span>
+												class="reviews-bar__star"><i class="fas fa-star"></i></span>
 										</div>
 										<div class="reviews-bar__progress" style="-percent: 10%"></div>
 										<div class="reviews-bar__percent">0%</div>
@@ -460,8 +485,7 @@
 									<div class="reviews-bar">
 										<div class="reviews-bar__stars">
 											<span class="reviews-bar__star-number">1</span> <span
-												class="reviews-bar__star"><i
-												class="fas fa-star"></i></span>
+												class="reviews-bar__star"><i class="fas fa-star"></i></span>
 										</div>
 										<div class="reviews-bar__progress" style="-percent: 0%"></div>
 										<div class="reviews-bar__percent">0%</div>
@@ -742,7 +766,8 @@
 						<li class="col c-6 m-4 l-2-4 py-1"><a href="#">
 								<div class="card">
 									<div class="card-img">
-										<img src="${pageContext.request.contextPath}/imgs/card1.webp" alt="" />
+										<img src="${pageContext.request.contextPath}/imgs/card1.webp"
+											alt="" />
 									</div>
 									<div class="card-text">
 										<h3 class="card-title text-hover">TEELAB</h3>
@@ -757,7 +782,8 @@
 						<li class="col c-6 m-4 l-2-4 py-1"><a href="#">
 								<div class="card">
 									<div class="card-img">
-										<img src="${pageContext.request.contextPath}/imgs/card2.webp" alt="" />
+										<img src="${pageContext.request.contextPath}/imgs/card2.webp"
+											alt="" />
 									</div>
 									<div class="card-text">
 										<h3 class="card-title text-hover">TEELAB</h3>
@@ -942,14 +968,13 @@
 				<div class="block_wrapper">
 					<ul class="block_list">
 						<li class="block_item logo"><a href="/"><img
-								src="${pageContext.request.contextPath}/imgs/logo-white.png" alt="logo-white" /></a>
-						</li>
+								src="${pageContext.request.contextPath}/imgs/logo-white.png"
+								alt="logo-white" /></a></li>
 						<li class="block_item"><a class="block_link"
 							href="tel:0906.880.960" title="Hotline: 0906.880.960">Hotline:
 								0906.880.960</a></li>
 						<li class="block_item"><a class="block_link" href="/"
-							title="9h-18h từ Thứ 2 đến Thứ 6">(9h-18h
-								từ Thứ 2 đến Thứ 6)</a></li>
+							title="9h-18h từ Thứ 2 đến Thứ 6">(9h-18h từ Thứ 2 đến Thứ 6)</a></li>
 						<li class="block_item"><a class="block_link"
 							href="email:customer@dosiinvn.com"
 							title="Email: customer@dosiinvn.com">Email:
@@ -1016,16 +1041,18 @@
 								<a class="block_link" href="/" title="COD Tiền mặt">
 									<div class="card-item_box">
 										<div class="card-item_icon">
-											<img src="${pageContext.request.contextPath}/imgs/social/cod.webp" alt="Tiền mặt"
-												title="Tiền mặt" />
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/cod.webp"
+												alt="Tiền mặt" title="Tiền mặt" />
 										</div>
 										<div class="card-item_text">Tiền mặt</div>
 									</div>
 								</a><a class="block_link" href="/" title="Momo">
 									<div class="card-item_box">
 										<div class="card-item_icon">
-											<img src="${pageContext.request.contextPath}/imgs/social/momo.png" alt="Momo"
-												title="Momo" />
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/momo.png"
+												alt="Momo" title="Momo" />
 										</div>
 										<div class="card-item_text">Momo</div>
 									</div>
@@ -1037,7 +1064,8 @@
 								<a class="block_link" href="/" title="VISA, MASTER, JCB">
 									<div class="card-item_box">
 										<div class="card-item_icon">
-											<img src="${pageContext.request.contextPath}/imgs/social/credit-card.png"
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/credit-card.png"
 												alt="VISA, MASTER, JCB" title="VISA, MASTER, JCB" />
 										</div>
 										<div class="card-item_text">VISA, MASTER, JCB</div>
@@ -1050,7 +1078,8 @@
 								<a class="block_link" href="/" title="Internet Banking">
 									<div class="card-item_box">
 										<div class="card-item_icon">
-											<img src="${pageContext.request.contextPath}/imgs/social/credit-card.png"
+											<img
+												src="${pageContext.request.contextPath}/imgs/social/credit-card.png"
 												alt="Internet Banking" title="Internet Banking" />
 										</div>
 										<div class="card-item_text">Internet Banking</div>
@@ -1064,13 +1093,16 @@
 						<li class="block_delivery-item"><a class="delivery-item_link"
 							href="/" title="Giao hàng nhanh">
 								<div class="delivery-item_icon">
-									<img src="${pageContext.request.contextPath}/imgs/social/ghn.webp" alt="Giao hàng nhanh" />
+									<img
+										src="${pageContext.request.contextPath}/imgs/social/ghn.webp"
+										alt="Giao hàng nhanh" />
 								</div>
 						</a></li>
 						<li class="block_delivery-item"><a class="delivery-item_link"
 							href="/" title="Giao hàng tiết kiệm">
 								<div class="delivery-item_icon">
-									<img src="${pageContext.request.contextPath}/imgs/social/ghtk.png"
+									<img
+										src="${pageContext.request.contextPath}/imgs/social/ghtk.png"
 										alt="Giao hàng tiết kiệm" />
 								</div>
 						</a></li>
@@ -1118,7 +1150,8 @@
 						<p>Đăng ký thay đổi lần thứ 7, ngày 07 tháng 06 năm 2021</p>
 					</div>
 					<div class="footer_top-approve">
-						<img src="${pageContext.request.contextPath}/imgs/social/bo-cong-thuong.png"
+						<img
+							src="${pageContext.request.contextPath}/imgs/social/bo-cong-thuong.png"
 							alt="Bộ công thương" sizes="" srcset="" />
 					</div>
 				</div>
@@ -1131,5 +1164,6 @@
 	<script src="${pageContext.request.contextPath}/js/utils.js"></script>
 	<script src="${pageContext.request.contextPath}/js/modal.js"></script>
 	<script src="${pageContext.request.contextPath}/js/detail.js"></script>
+	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
 </body>
 </html>
