@@ -977,7 +977,7 @@
                             <div class="order-box__mid">
                                 <div class="order-box__mid-left">
                                     <div class="order-box__product">
-                                        <div class="order-product__img"><img src="${item.pathImage}" width="85px"
+                                        <div class="order-product__img"><img src="${pageContext.request.contextPath}/${item.pathImage}" width="85px"
                                                                              height="85px"/>
                                         </div>
                                         <div class="order-product__detail">
