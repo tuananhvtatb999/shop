@@ -987,7 +987,7 @@ button.swiper-pagination-bullet {
   justify-content: space-between;
   align-items: center;
   background-color: var(--white);
-  height: 55px;
+  height: 60px;
   border-bottom: 1px solid #54545400;
 }
 .header-bottom-left,

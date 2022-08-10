@@ -505,7 +505,7 @@
 
 									<div class="">
 										<div class="form-group">
-											<label for="productDescription" class="input-label">Miêu
+											<label for="productDescription" class="input-label">Mô
 												tả sản phẩm</label>
 											<form:textarea id="productDescription" path="description"></form:textarea>
 										</div>
@@ -517,7 +517,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 1</p> <input type="file" name="multipartFile"
+														<p>Tải lên ảnh 1</p> <input type="file" name="multipartFile"
 														class="upload__inputfile">
 													</label>
 												</div>
@@ -528,7 +528,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 2</p> <input type="file" name="multipartFile1"
+														<p>Tải lên ảnh 2</p> <input type="file" name="multipartFile1"
 														class="upload__inputfile">
 													</label>
 												</div>
@@ -539,7 +539,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 3</p> <input type="file" name="multipartFile2"
+														<p>Tải lên ảnh 3</p> <input type="file" name="multipartFile2"
 														class="upload__inputfile">
 													</label>
 												</div>
@@ -550,7 +550,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Tải ảnh 4</p> <input type="file" name="multipartFile3"
+														<p>Tải lên ảnh 4</p> <input type="file" name="multipartFile3"
 														class="upload__inputfile">
 													</label>
 												</div>
@@ -562,13 +562,13 @@
 
 									<div class="btn btnArond">
 										<a onclick="clearForm()">
-											<button type="button" class="btn btn-warning">Clear</button>
+											<button type="button" class="btn btn-warning">Xóa tất cả</button>
 										</a> <a href="#">
 											<button type="submit" class="btn button primary">
-												<span>Submit</span>
+												<span>Xác Nhận</span>
 											</button>
 										</a> <a href="./ProductList.html">
-											<button type="button" class="btn btn-danger">Cancel</button>
+											<button type="button" class="btn btn-danger">Hủy</button>
 										</a>
 									</div>
 

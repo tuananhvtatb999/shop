@@ -73,9 +73,11 @@
 				<!-- Header-left -->
 				<ul class="header-bottom-left">
 					<li class="header-bottom-logo"><a
-						href="${pageContext.request.contextPath}/home"> <img
-							src="../assets/img/logo.svg" alt="logo" />
-					</a></li>
+					href="${pageContext.request.contextPath}/home"> <img
+						src="../imgs/logo.png"
+						alt="logo" />
+				</a>
+				<a class="text-logo">FPT-EC</a></li>
 					<li class="header-bottom-item"><a href="#"> <span
 							class="header-bottom-item-text text-hover active">Shopping</span>
 					</a></li>
@@ -142,22 +144,6 @@
 					<!-- end Header-right -->
 			</div>
 			<!-- end Header - bottom -->
-
-			<!-- ------------------------ Begin BREADCRUMB ------------------------------- -->
-			<ul class="category">
-				<li class="category-item text-hover"><a href="#">Sản phẩm</a></li>
-				<li class="category-item text-hover"><a href="#">Nam</a></li>
-				<li class="category-item text-hover"><a href="#">Nữ</a></li>
-				<li class="category-item text-hover"><a href="#">Phụ kiện</a></li>
-				<li class="category-item text-hover"><a href="#">Thương
-						hiệu</a></li>
-				<li class="category-item text-hover"><a href="#">Xếp hạng</a></li>
-				<li class="category-item text-hover"><a href="#">Mới nhất </a>
-				</li>
-				<li class="category-item text-hover"><a href="#">Giá sốc </a></li>
-				<li class="category-item text-hover"><a href="#">Sự kiện </a></li>
-			</ul>
-			<!-- ------------------------ End BREADCRUMB ------------------------------- -->
 		</div>
 
 	</header>
@@ -171,9 +157,9 @@
 				<nav class="sidebar" id="sidebar">
 					<div class="aside__user">
 						<div class="aside__user-img">
-							<img src="../assets/img/shop/shop-banner.webp" />
+							<img src="/${avatar}" />
 						</div>
-						<div class="aside__user-name">Name Of User</div>
+						<div class="aside__user-name">${name}</div>
 					</div>
 					<ul class="nav">
 						<li class="nav-item" data-tab-select="user-information"><a
@@ -281,16 +267,16 @@
 										<div class="order-box__mid-left">
 											<div class="order-box__product">
 												<div class="order-product__img">
-													<img src="${i.productEntity.pathImage}" width="85px"
+													<img src="/${i.productEntity.pathImage}" width="85px"
 														height="85px" />
 												</div>
 												<div class="order-product__detail">
 													<div class="order-product__name">${i.productEntity.name}</div>
 													<div class="order-product__description">
-														Size: <span>${i.productEntity.productDetailsEntity.size}</span>
+														Size: <span class="text-highlight" style="font-weight: bold;">${i.productEntity.productDetailsEntity.size}</span>
 													</div>
 													<div class="order-product__description">
-														Color <span>${i.productEntity.productDetailsEntity.color}</span>
+														Color <span class="text-highlight" style="font-weight: bold;">${i.productEntity.productDetailsEntity.color}</span>
 													</div>
 
 												</div>
@@ -345,7 +331,8 @@
 			<div class="footer_top-item">
 				<div class="block_wrapper">
 					<ul class="block_list">
-						<li class="block_item logo"><a href="/"><img
+						<li class="block_item logo">
+						<a href="/"><img
 								src="${pageContext.request.contextPath}/imgs/logo-white.png"
 								alt="logo-white" /></a></li>
 						<li class="block_item"><a class="block_link"
@@ -473,5 +460,12 @@
 
 	<script src="${pageContext.request.contextPath}/js/changeOrderTabs.js"></script>
 	<script src="${pageContext.request.contextPath}/newjs/popup.js"></script>
+	<script>
+	function deletSpace() {
+		const isSpace = document.getElementsByClassName("order-box");
+		if(isSpace.value === null){
+			this.isSpace.style.display = hide;
+		}}
+		</script>
 </body>
 </html>

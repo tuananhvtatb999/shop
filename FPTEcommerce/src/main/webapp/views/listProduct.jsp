@@ -68,9 +68,10 @@
 				</div>
 				<li class="header-bottom-logo"><a
 					href="${pageContext.request.contextPath}/home"> <img
-						src="${pageContext.request.contextPath}/newimage/logo.svg"
+						src="../imgs/logo.png"
 						alt="logo" />
-				</a></li>
+				</a>
+				<a class="text-logo">FPT-EC</a></li>
 			</ul>
 			<!-- end Header-left -->
 			<!-- Header-right -->
@@ -146,18 +147,20 @@
                               </a> -->
 
 						<div class="nav__dropdown">
-							<a class="nav__link"> <i class='bx bx-closet nav__icon'></i>
+							<a class="nav__link active"> <i class='bx bx-closet nav__icon'></i>
 								<span class="nav__name">Quản lý sản phẩm</span>
 
 							</a>
 
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
-									<a href="${pageContext.request.contextPath}/shop/listProduct"
-										class="nav__dropdown-item">Tất cả sản phẩm</a> <a
-										href="${pageContext.request.contextPath}/shop/addProduct"
-										class="nav__dropdown-item">Thêm sản phẩm</a> <a
-										href="${pageContext.request.contextPath}/shop/addProduct"
+									<a href=	"${pageContext.request.contextPath}/shop/listProduct"
+										class="nav__dropdown-item active">Tất cả sản phẩm</a> 
+										
+										<a href="${pageContext.request.contextPath}/shop/addProduct"
+										class="nav__dropdown-item">Thêm sản phẩm</a> 
+										
+										<a href="${pageContext.request.contextPath}/shop/addProduct"
 										class="nav__dropdown-item">Sản phẩm vi phạm</a>
 								</div>
 							</div>
@@ -270,10 +273,10 @@
 														<td><c:out value="${item.name }"></c:out></td>
 														<td><c:out value="${item.code }"></c:out></td>
 														<td><c:out value="${item.subCategoryEntity.nameSub }"></c:out></td>
-														<td><c:out value="${item.unitPrice }"></c:out></td>
+														<td><c:out value="${item.unitPrice }  vnđ"></c:out></td>
 														<td><c:out value="${item.quantity }"></c:out></td>
 														<td><c:out value="${item.productDetailsEntity.size }"></c:out></td>
-														<td><c:out value="${item.discountEntity.percentz }"></c:out></td>
+														<td><c:out value="${item.discountEntity.percentz }%"></c:out></td>
 														<td><c:out value="${item.promotionPrice }"></c:out></td>
 														<td>
 															<div class="dropdown">

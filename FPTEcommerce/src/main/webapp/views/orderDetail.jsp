@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product List</title>
+<title>Order Detail</title>
 <!------------ CSS core ------------ -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/newcss/core.css">
@@ -67,9 +67,10 @@
 				</div>
 				<li class="header-bottom-logo"><a
 					href="${pageContext.request.contextPath}/home"> <img
-						src="${pageContext.request.contextPath}/newimage/logo.svg"
+						src="/imgs/logo.png"
 						alt="logo" />
-				</a></li>
+				</a>
+				<a class="text-logo">FPT-EC</a></li>
 			</ul>
 			<!-- end Header-left -->
 			<!-- Header-right -->
@@ -178,10 +179,10 @@
 
 						<a href="/html/DiscountList.html" class="nav__link"> <i
 							class='bx bxs-discount nav__icon'></i> <span class="nav__name">Discount</span>
-						</a> <a href="#" class="nav__link"> <i
+						</a> <!-- <a href="#" class="nav__link"> <i
 							class=' bx bxs-bar-chart-square nav__icon'></i> <span
 							class="nav__name">Report</span>
-						</a>
+						</a> -->
 					</div>
 				</div>
 			</div>
@@ -251,9 +252,9 @@
 										<div class="card-body">
 											<!-- Media -->
 											<div class="media">
-												<div class="avatar avatar-xl mr-3">
+												<div class="mr-3" style="width: 6.5rem; height:auto; padding-bottom: 10px;">
 													<img class="img-fluid"
-														src="${orders.productEntity.pathImage}"
+														src="/${orders.productEntity.pathImage}"
 														alt="Image Description">
 												</div>
 
@@ -264,13 +265,13 @@
 																href="${pageContext.request.contextPath}/detailProduct?id=${orders.productEntity.id}">
 																${orders.productEntity.name}</a>
 															<div class="font-size-sm text-body">
-																<span>Gender:</span> <span class="font-weight-bold">${orders.productEntity.productDetailsEntity.gender}</span>
+																<span>Gender:</span> <span class="font-weight-bold text-highlight" style="font-weight: bold;">${orders.productEntity.productDetailsEntity.gender}</span>
 															</div>
 															<div class="font-size-sm text-body">
-																<span>Color:</span> <span class="font-weight-bold">${orders.productEntity.productDetailsEntity.color}</span>
+																<span>Color:</span> <span class="font-weight-bold text-highlight" style="font-weight: bold;">${orders.productEntity.productDetailsEntity.color}</span>
 															</div>
 															<div class="font-size-sm text-body">
-																<span>Size:</span> <span class="font-weight-bold">${orders.productEntity.productDetailsEntity.size}</span>
+																<span>Size:</span> <span class="font-weight-bold text-highlight" style="font-weight: bold;">${orders.productEntity.productDetailsEntity.size}</span>
 															</div>
 														</div>
 
@@ -329,7 +330,7 @@
 											<a class="media customer-avatar align-items-center" href="#">
 												<div class="avatar avatar-circle mr-3">
 													<img class="avatar-img" style="border-radius: 50%;"
-														src="${user.path}" alt="Image Description">
+														src="/${user.path}" alt="avatar">
 												</div>
 												<div class="media-body">
 													<span class="text-body customer-name text-hover-primary">${user.username}</span>
@@ -374,17 +375,16 @@
 										<a onclick="">
 											<button type="button" class="btn btn-warning"
 												onclick="Product.updateStatusOrder(${orders.id}, 2)">
-												<span>Đồng Ý</span>
+												<span>Chờ lấy hàng</span>
 											</button>
 										</a> <a onclick="">
 											<button type="button" class="btn button primary"
 												onclick="Product.updateStatusOrder(${orders.id}, 3)">
-												<span>Đã giao</span>
+												<span>Đang giao</span>
 											</button>
 										</a> <a>
 											<button type="button" class="btn btn-danger"
-												onclick="Product.updateStatusOrder(${orders.id}, 5)">Từ
-												Chối</button>
+												onclick="Product.updateStatusOrder(${orders.id}, 5)">Hủy</button>
 										</a>
 
 									</div>

@@ -361,7 +361,7 @@
 									<form:hidden path="userEntity.gender" readonly="true" />
 									<form:hidden path="userEntity.updateTime" readonly="true" />
 									<form:hidden path="userEntity.path" readonly="true" />
-									<h4 class="card-header">Shop Information</h4>
+									<h4 class="card-header">Thông tin Shop</h4>
 									<div class="card-body ">
 										<div class="add-Name-Code">
 											<c:if test="${message != null }">
@@ -370,14 +370,14 @@
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="form-group">
-														<label for="productMaterial" class="input-label">Name</label>
+														<label for="productMaterial" class="input-label">Tên</label>
 														<form:input path="name" type="text"
 															cssClass="form-control" id="productBrand" />
 													</div>
 												</div>
 												<div class="col-sm-6">
 													<div class="form-group">
-														<label for="productMaterial" class="input-label">Address</label>
+														<label for="productMaterial" class="input-label">Địa chỉ</label>
 														<form:input path="address" type="text"
 															cssClass="form-control" id="productBrand" />
 													</div>
@@ -386,7 +386,7 @@
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="form-group">
-														<label for="productMaterial" class="input-label">Phone</label>
+														<label for="productMaterial" class="input-label">Số điện thoại</label>
 														<form:input path="phone" type="text" class="form-control"
 															id="productBrand" />
 													</div>
@@ -401,7 +401,7 @@
 											</div>
 											<div class="row">
 												<div class="form-group">
-													<label for="productDescription" class="input-label">Description</label>
+													<label for="productDescription" class="input-label">Mô tả</label>
 													<form:textarea path="description" class="form-control"
 														id="productDescription" rows="7" />
 												</div>
@@ -411,13 +411,13 @@
 										</div>
 										<div class="btn btnArond">
 											<a onclick="showMessReject(${id})">
-												<button type="button" class="btn btn-warning">Reject</button>
+												<button type="button" class="btn btn-warning">Từ chối</button>
 											</a>
 											 <a onclick="showMessApprove(${id})" >
-												<button type="button" class="btn btn-primary">Approve</button>
+												<button type="button" class="btn btn-primary">Đồng ý</button>
 											</a> 
 											<a onclick="#">
-												<button type="button" class="btn btn-danger">Cancel</button>
+												<button type="button" class="btn btn-danger">Đóng</button>
 											</a>
 										</div>
 										

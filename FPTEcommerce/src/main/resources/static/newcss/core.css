@@ -109,6 +109,94 @@
 	animation-delay: -0.4s;
 	-webkit-animation-delay: -0.4s;
 }
+
+.text-logo{
+	padding-left: 7px;
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 700;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.action .menu {
+  -webkit-text-fill-color: currentColor;
+  position: absolute;
+  top: 120px;
+  right: -10px;
+  padding: 10px 20px;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active {
+	bacground: red;
+  right: 10px;
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 60px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5em;
+}
+
+.action .menu h3 span {
+  font-size: 14px;
+  color: #cecece;
+  font-weight: 300;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+}
+
+.border-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.action .menu ul li img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
 @keyframes preloader-fx  { 
 	0% {transform: scale(0, 0); opacity: 0.5;}
 	100% {transform:scale(1,1); opacity:0;}

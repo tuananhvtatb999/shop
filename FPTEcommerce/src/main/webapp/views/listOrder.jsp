@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product List</title>
+<title>List Orders</title>
 <!------------ CSS core ------------ -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/newcss/core.css">
@@ -67,9 +67,11 @@
 				</div>
 				<li class="header-bottom-logo"><a
 					href="${pageContext.request.contextPath}/home"> <img
-						src="${pageContext.request.contextPath}/newimage/logo.svg"
+						src="../imgs/logo.png"
 						alt="logo" />
-				</a></li>
+				</a>
+				<a class="text-logo">FPT-EC</a></li>
+				</li>
 			</ul>
 			<!-- end Header-left -->
 			<!-- Header-right -->
@@ -162,7 +164,7 @@
 						</div>
 
 						<div class="nav__dropdown">
-							<a class="nav__link"> <i class='bx bx-task nav__icon'></i> <span
+							<a class="nav__link active"> <i class='bx bx-task nav__icon'></i> <span
 								class="nav__name">Quản lý đơn hàng</span>
 
 							</a>
@@ -170,7 +172,7 @@
 							<div class="nav__dropdown-collapse">
 								<div class="nav__dropdown-content">
 									<a href="${pageContext.request.contextPath}/shop/listOrder"
-										class="nav__dropdown-item">Tất cả đơn hàng</a> <a href="#"
+										class="nav__dropdown-item active">Tất cả đơn hàng</a> <a href="#"
 										class="nav__dropdown-item">Đơn hủy</a>
 								</div>
 							</div>

@@ -291,8 +291,7 @@
 										<div class="dropdown-divider"></div>
 									</li>
 									<li><a class="dropdown-item" href="#"> <i
-											class="bx bx-user me-2"></i> <span class="align-middle">My
-												Profile</span>
+											class="bx bx-user me-2"></i> <span class="align-middle">Thông tin</span>
 									</a></li>
 									<li><a class="dropdown-item" href="#"> <i
 											class="bx bx-cog me-2"></i> <span class="align-middle">Settings</span>
@@ -329,19 +328,18 @@
 							<div class="card mb-4 ">
 								<form class="" action="">
 									<div class="header-table">
-										<h4 class="card-header">Request Shop</h4>
+										<h4 class="card-header">Danh sách yêu cầu</h4>
 
 									</div>
 									<div class="table-responsive text-nowrap">
 										<table class="table table-hover">
 											<thead class="table-light">
 												<tr>
-													<th><input type="checkbox" name="" value=""
-														id="checkedAll" /></th>
-													<th>User Name</th>
-													<th>Id User</th>
-													<th>Shop Name</th>
-													<th>Actions</th>
+													<th>ID</th>
+													<th>Tên người dùng</th>
+													<th>Tên Shop</th>
+													<th>Ngày gửi yêu cầu</th>
+													<th>thao tác</th>
 												</tr>
 											</thead>
 											<tbody class="table-border-bottom-0">
@@ -351,8 +349,8 @@
 														<!--   <td><input type="checkbox" name="" value="1" class="checkSingle" /></td> -->
 
 														<td><c:out value="${item.id }"></c:out></td>
-														<td><c:out value="${item.name }"></c:out></td>
-														<td><c:out value="${item.userEntity.username }"></c:out>
+														<td><c:out value="${item.userEntity.username } "></c:out></td>
+														<td><c:out value="${item.name }"></c:out>
 														</td>
 														<td><c:out value="${item.userEntity.createTime }"></c:out>
 														</td>
@@ -366,7 +364,7 @@
 																<div class="dropdown-menu ">
 																	<a class="dropdown-item"
 																	href="${pageContext.request.contextPath}/admin/updateShopStatus?id=${item.id }"><i
-																	class="bx bx-edit-alt me-1"></i> View</a>
+																	class="bx bx-edit-alt me-1"></i> Chi tiết</a>
 																</div>
 															</div>
 														</td>

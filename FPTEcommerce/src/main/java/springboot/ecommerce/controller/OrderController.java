@@ -44,6 +44,8 @@ public class OrderController {
                 List<OrderEntity> entities = orderRepository.getByUserId(entity.getId());
                 entities.forEach(t -> t.setOrderDetailEntity(orderDetailRepository.getByOrderIdAndStatus(t.getId(), status)));
                 modelMap.addAttribute("orders", entities);
+                modelMap.addAttribute("avatar", entity.getPath());
+                modelMap.addAttribute("name", entity.getUsername());
             }
         }
         return "userOrder";

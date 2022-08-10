@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Product</title>
+<title>Update Product</title>
 <!------------ CSS core ------------ -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/newcss/core.css">
@@ -212,7 +212,7 @@
 							enctype="multipart/form-data">
 							<!-- Header -->
 							<div class="card-header">
-								<h4 class="card-header-title">Product information</h4>
+								<h4 class="card-header-title">Thông tin sản phẩm</h4>
 							</div>
 							<!-- End Header -->
 							<form:hidden path="id" readonly="true" />
@@ -508,18 +508,18 @@
 
 									<div class="">
 										<div class="form-group">
-											<label for="productDescription" class="input-label">Description</label>
+											<label for="productDescription" class="input-label">Mô tả sản phẩm</label>
 											<form:textarea id="productDescription" path="description"></form:textarea>
 										</div>
 									</div>
 
 									<div class="row">
-										<label class="input-label">Product Image</label>
+										<label class="input-label">Ảnh sản phẩm</label>
 										<div class="col-sm-3">
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 1</p> <input type="file"
+														<p>Tải lên ảnh 1</p> <input type="file"
 														name="multipartFile" class="upload__inputfile">
 													</label>
 												</div>
@@ -533,7 +533,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 2</p> <input type="file"
+														<p>Tải lên ảnh 2</p> <input type="file"
 														name="multipartFile1" class="upload__inputfile">
 													</label>
 												</div>
@@ -548,7 +548,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 3</p> <input type="file"
+														<p>Tải lên ảnh 3</p> <input type="file"
 														name="multipartFile2" class="upload__inputfile">
 													</label>
 												</div>
@@ -562,7 +562,7 @@
 											<div class="upload__box">
 												<div class="upload__btn-box">
 													<label class="upload__btn">
-														<p>Upload images 4</p> <input type="file"
+														<p>Tải lên ảnh 4</p> <input type="file"
 														name="multipartFile3" class="upload__inputfile">
 													</label>
 												</div>
@@ -578,10 +578,10 @@
 									<div class="btn btnArond">
 										<a href="#">
 											<button type="submit" class="btn button primary">
-												<span>Submit</span>
+												<span>Xác nhận</span>
 											</button>
 										</a> <a href="listProduct">
-											<button type="button" class="btn btn-danger">Cancel</button>
+											<button type="button" class="btn btn-danger">Hủy</button>
 										</a>
 									</div>
 

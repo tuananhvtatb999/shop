@@ -23,7 +23,7 @@ var Product = {
                         "<div class='search-shop__item-left'>" +
                         "<div class='search-shop__image-wrapper'>" +
                         "<img src='"+ value.linkImage+"'" +
-                        "alt='shop-image' width='80px' height='80px'>" +
+                        "alt='shop-image' style='width: 80px; height: 80px;'>" +
                         "<div class='badge'></div>" +
                         "</div>" +
                         "<div class='search-shop__info-wrapper'>" +

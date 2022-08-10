@@ -987,15 +987,15 @@
 									<div class="order-box__mid-left">
 										<div class="order-box__product">
 											<div class="order-product__img">
-												<img src="${item.pathImage}" width="85px" height="85px" />
+												<img src="/${item.pathImage}" width="85px" height="85px" />
 											</div>
 											<div class="order-product__detail">
 												<div class="order-product__name">${item.name}</div>
 												<div class="order-product__description">
-													Size: <span>${item.size}</span>
+													Size: <span class="text-highlight" style="font-weight: bold;">${item.size}</span>
 												</div>
 												<div class="order-product__description">
-													Color <span>${item.color}</span>
+													Color <span class="text-highlight"  style="font-weight: bold;">${item.color}</span>
 												</div>
 
 											</div>
